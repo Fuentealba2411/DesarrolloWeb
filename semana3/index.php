@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Semana 3 - Bootstrap + DOM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const respuestaAPI = {
+            "status": 200,
+            "message": "Productos obtenidos correctamente",
+            "data": [
+                { "id": 1, "nombre": "Teclado", "precio": 4590 },
+                { "id": 2, "nombre": "Mouse", "precio": 6000 },
+                { "id": 3, "nombre": "Monitor", "precio": 129990 }
+            ]
+        };
+
+        function cargarTabla(){
+            let cuerpo = document.getElementById("cuerpoTabla");
+            respuestaAPI.data.forEach((producto) => {
+                let fila = document.createElement("tr");
+
+                let celdaId = document.createElement("td");
+                celdaId.innerText = producto.id;
+
+                let celdaNombre = document.createElement("td");
+                celdaNombre.innerText = producto.nombre;
+
+                let celdaPrecio = document.createElement("td");
+                celdaPrecio.innerText = "$" + producto.precio;
+
+                fila.appendChild(celdaId);
+                fila.appendChild(celdaNombre);
+                fila.appendChild(celdaPrecio);
+
+                cuerpo.appendChild(fila);
+            });
+        }
+    </script>
+</head>
+<body onload="cargarTabla();">
+    <div class="container mt-5">
+        <h2>Listado de productos</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
