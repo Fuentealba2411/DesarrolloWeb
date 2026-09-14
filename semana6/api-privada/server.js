@@ -4,7 +4,7 @@ app.use(express.json());
 
 let usuarios = [
     { id: 1, nombre: "Max", pass: "1234" },
-    { id: 2, nombre: "Fabian", pass: "5678" }
+    { id: 2, nombre: "Fabian", pass: "hola1234" }
 ];
 let siguienteId = 3;
 
