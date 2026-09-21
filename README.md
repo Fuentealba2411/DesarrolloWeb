@@ -64,7 +64,7 @@ No hay nada que instalar ni compilar.
 **1. Descarga el proyecto**
 
 ```bash
-Descarga el ZIP desde el botón verde **Code → Download ZIP** y descomprímelo.
+**1. Descarga el ZIP desde el botón verde **Code → Download ZIP** y descomprímelo.**
 
 **2. Ábrelo en el navegador**
 
