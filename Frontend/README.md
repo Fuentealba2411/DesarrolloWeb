@@ -4,7 +4,7 @@ Sitio web de **Mediterráneo**, un restaurante de cocina mediterránea (Grecia, 
 
 Es un proyecto **100 % front-end**: HTML, CSS y JavaScript, sin build ni dependencias que instalar.
 
-![Página de inicio](Frontend/docs/capturas/inicio.jpg)
+![Página de inicio](docs/capturas/inicio.jpg)
 
 ## Contenido
 
@@ -43,9 +43,9 @@ Además, todas las páginas comparten:
 
 | Menú | Carrito |
 |---|---|
-| ![Menú](Frontend/docs/capturas/menu.jpg) | ![Carrito](Frontend/docs/capturas/carrito.jpg) |
+| ![Menú](docs/capturas/menu.jpg) | ![Carrito](docs/capturas/carrito.jpg) |
 
-![Promociones](Frontend/docs/capturas/promociones.jpg)
+![Promociones](docs/capturas/promociones.jpg)
 
 ## Tecnologías
 
@@ -64,18 +64,21 @@ No hay nada que instalar ni compilar.
 **1. Descarga el proyecto**
 
 ```bash
-**1. Descarga el ZIP desde el botón verde **Code → Download ZIP** y descomprímelo.**
+git clone https://github.com/<tu-usuario>/<tu-repositorio>.git
+cd <tu-repositorio>
+```
+
+O descarga el ZIP desde el botón verde **Code → Download ZIP** y descomprímelo.
 
 **2. Ábrelo en el navegador**
 
-La forma más simple es entrar a la carpeta `Frontend/` y hacer doble clic en `index.html`.
+La forma más simple es hacer doble clic en `index.html`.
 
 **3. (Recomendado) Sírvelo con un servidor local**
 
 El doble clic funciona, pero un servidor local se parece más a cómo se verá el sitio ya publicado. Con Python (que ya viene en la mayoría de los computadores):
 
 ```bash
-cd Frontend
 python3 -m http.server 8000
 ```
 
@@ -83,29 +86,17 @@ y abre <http://localhost:8000>. Si usas Visual Studio Code, también sirve la ex
 
 ## Publicarlo con GitHub Pages
 
-Como es un sitio estático, puedes dejarlo online gratis. La única particularidad es que el sitio no está en la raíz del repositorio, sino dentro de la carpeta `Frontend/`, y GitHub Pages solo permite publicar desde la raíz o desde una carpeta `/docs`. Hay dos formas de resolverlo:
+Como es un sitio estático, puedes dejarlo online gratis:
 
-**Opción A: mover el sitio a `/docs`**
-
-1. Renombra la carpeta `Frontend/` a `docs/` (o duplícala) en la raíz del repositorio, de modo que quede `docs/index.html`. Como el proyecto ya tiene una carpeta interna `docs/capturas/`, después de renombrar quedará como `docs/docs/capturas/` — funciona igual, pero si prefieres que se vea prolijo, renombra esa carpeta interna a algo como `capturas/`. En cualquier caso, ajusta las tres rutas de imágenes de este README (quítales el `Frontend/` inicial) para que sigan apuntando al lugar correcto.
+1. Sube el proyecto a un repositorio de GitHub, con `index.html` en la raíz.
 2. Ve a **Settings → Pages**.
-3. En **Build and deployment**, elige **Deploy from a branch**, selecciona la rama `main` y la carpeta `/docs`, y guarda.
+3. En **Build and deployment**, elige **Deploy from a branch**, selecciona la rama `main` y la carpeta `/ (root)`, y guarda.
 4. Espera un par de minutos. El sitio quedará en `https://<tu-usuario>.github.io/<tu-repositorio>/`.
-
-**Opción B: publicar `Frontend/` con una GitHub Action**
-
-1. Ve a **Settings → Pages** y en **Build and deployment** elige **GitHub Actions**.
-2. Crea el archivo `.github/workflows/pages.yml` con una acción que suba solo la carpeta `Frontend/` (por ejemplo, con [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) apuntando a `path: Frontend`).
-3. Cada vez que hagas push a `main`, la Action publicará el contenido de `Frontend/` en `https://<tu-usuario>.github.io/<tu-repositorio>/`.
-
-La opción A es más simple si no usas GitHub Actions en otra parte del repositorio.
 
 ## Estructura del proyecto
 
-Todo el sitio vive dentro de la carpeta `Frontend/`; no está repartido en la raíz del repositorio.
-
 ```
-Frontend/
+.
 ├── index.html              # Inicio
 ├── menu.html               # Carta con filtros y búsqueda
 ├── promociones.html
