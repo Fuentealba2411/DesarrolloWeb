@@ -4,7 +4,7 @@ Sitio web de **Mediterráneo**, un restaurante de cocina mediterránea (Grecia, 
 
 Es un proyecto **100 % front-end**: HTML, CSS y JavaScript, sin build ni dependencias que instalar.
 
-![Página de inicio](docs/capturas/inicio.jpg)
+![Página de inicio](Frontend/docs/capturas/inicio.jpg)
 
 ## Contenido
 
@@ -43,9 +43,9 @@ Además, todas las páginas comparten:
 
 | Menú | Carrito |
 |---|---|
-| ![Menú](docs/capturas/menu.jpg) | ![Carrito](docs/capturas/carrito.jpg) |
+| ![Menú](Frontend/docs/capturas/menu.jpg) | ![Carrito](Frontend/docs/capturas/carrito.jpg) |
 
-![Promociones](docs/capturas/promociones.jpg)
+![Promociones](Frontend/docs/capturas/promociones.jpg)
 
 ## Tecnologías
 
@@ -87,7 +87,7 @@ Como es un sitio estático, puedes dejarlo online gratis. La única particularid
 
 **Opción A: mover el sitio a `/docs`**
 
-1. Renombra la carpeta `Frontend/` a `docs/` (o duplícala) en la raíz del repositorio, de modo que quede `docs/index.html`. Como el proyecto ya tiene una carpeta interna `docs/capturas/`, después de renombrar quedará como `docs/docs/capturas/` — funciona igual, pero si prefieres que se vea prolijo, renombra esa carpeta interna a algo como `capturas/` y ajusta las rutas de las imágenes en este README.
+1. Renombra la carpeta `Frontend/` a `docs/` (o duplícala) en la raíz del repositorio, de modo que quede `docs/index.html`. Como el proyecto ya tiene una carpeta interna `docs/capturas/`, después de renombrar quedará como `docs/docs/capturas/` — funciona igual, pero si prefieres que se vea prolijo, renombra esa carpeta interna a algo como `capturas/`. En cualquier caso, ajusta las tres rutas de imágenes de este README (quítales el `Frontend/` inicial) para que sigan apuntando al lugar correcto.
 2. Ve a **Settings → Pages**.
 3. En **Build and deployment**, elige **Deploy from a branch**, selecciona la rama `main` y la carpeta `/docs`, y guarda.
 4. Espera un par de minutos. El sitio quedará en `https://<tu-usuario>.github.io/<tu-repositorio>/`.
