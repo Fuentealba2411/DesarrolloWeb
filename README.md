@@ -61,7 +61,10 @@ Bootstrap, los íconos y las fuentes se cargan desde CDN, así que **necesitas c
 
 No hay nada que instalar ni compilar.
 
-Dscarga el ZIP desde el botón verde **Code → Download ZIP** y descomprímelo.
+**1. Descarga el proyecto**
+
+```bash
+Descarga el ZIP desde el botón verde **Code → Download ZIP** y descomprímelo.
 
 **2. Ábrelo en el navegador**
 
@@ -84,7 +87,7 @@ Como es un sitio estático, puedes dejarlo online gratis:
 1. Sube el proyecto a un repositorio de GitHub, con `index.html` en la raíz.
 2. Ve a **Settings → Pages**.
 3. En **Build and deployment**, elige **Deploy from a branch**, selecciona la rama `main` y la carpeta `/ (root)`, y guarda.
-4. Espera un par de minutos. El sitio quedará en `https://<tu-usuario>.github.io/<tu-repositorio>/`.
+4. Espera un par de minutos. El sitio quedará en `https://<tu-usuario>.github.io/Frontend/`.
 
 ## Estructura del proyecto
 
@@ -216,3 +219,4 @@ Sitio desarrollado por:
 
 Las fotografías de la carpeta `imagenes/` son material de terceros y **no fueron tomadas por los autores**; pertenecen a sus respectivos dueños. Antes de reutilizar este proyecto con fines comerciales, verifica los derechos de cada imagen o reemplázalas por fotos propias.
 
+Este repositorio todavía no define una licencia para el código. Si quieres que otras personas puedan reutilizarlo, agrega un archivo `LICENSE` (por ejemplo, [MIT](https://choosealicense.com/licenses/mit/)).
