@@ -1,3 +1,5 @@
+"""Valida al cliente y envia sus peticiones al catalogo interno."""
+
 import os
 import httpx
 
@@ -16,10 +18,9 @@ if not TOKEN_VAULT:
     raise RuntimeError("TOKEN_VAULT no esta configurado")
 
 URL_CATALOGO = "http://localhost:9000"
-URL_CATALOGO_ALTERNO = "http://localhost:9100"
 
 
-async def leer_secretos_puerta():
+async def obtener_configuracion_secreta():
     url = f"{DIRECCION_VAULT}/v1/secret/data/gateway"
     cabeceras = {"X-Vault-Token": TOKEN_VAULT}
     async with httpx.AsyncClient(timeout=5.0) as cliente:
@@ -32,13 +33,13 @@ async def leer_secretos_puerta():
     return respuesta.json()["data"]["data"]
 
 
-async def autenticar_cliente(
+async def validar_token_cliente(
     credenciales: HTTPAuthorizationCredentials = Depends(esquema_bearer)
 ):
     if credenciales is None:
         raise HTTPException(status_code=401, detail="Se requiere token Bearer")
 
-    secretos = await leer_secretos_puerta()
+    secretos = await obtener_configuracion_secreta()
     clave_verificacion = secretos["clave_verificacion_identidad"]
 
     try:
@@ -66,6 +67,19 @@ async def autenticar_cliente(
     }
 
 
+def construir_cabeceras(auth: dict, tipo_contenido: str | None) -> dict:
+    cabeceras_internas = {
+        "X-Puerta-Clave": auth["clave_catalogo"],
+        "X-Id-Usuario": auth["id_usuario"],
+        "X-Nombre-Usuario": auth["nombre_usuario"],
+        "X-Roles-Usuario": ",".join(auth["roles"]),
+    }
+    if tipo_contenido:
+        cabeceras_internas["content-type"] = tipo_contenido
+
+    return cabeceras_internas
+
+
 @app.api_route(
     "/api/{ruta:path}",
     methods=["GET", "POST", "PUT", "PATCH", "DELETE"]
@@ -73,20 +87,14 @@ async def autenticar_cliente(
 async def reenviar(
     ruta: str,
     peticion: Request,
-    auth=Depends(autenticar_cliente)
+    auth=Depends(validar_token_cliente)
 ):
     destino = f"{URL_CATALOGO}/{ruta}"
     cuerpo = await peticion.body()
 
-    cabeceras_internas = {
-        "X-Puerta-Clave": auth["clave_catalogo"],
-        "X-Id-Usuario": auth["id_usuario"],
-        "X-Nombre-Usuario": auth["nombre_usuario"],
-        "X-Roles-Usuario": ",".join(auth["roles"]),
-    }
-    tipo_contenido = peticion.headers.get("content-type")
-    if tipo_contenido:
-        cabeceras_internas["content-type"] = tipo_contenido
+    cabeceras_internas = construir_cabeceras(
+        auth, peticion.headers.get("content-type")
+    )
 
     try:
         async with httpx.AsyncClient(timeout=10.0) as cliente:

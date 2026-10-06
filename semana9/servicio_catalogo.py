@@ -1,3 +1,5 @@
+"""Entrega articulos y pedidos a peticiones autorizadas por la puerta."""
+
 import os
 import secrets
 
@@ -23,11 +25,15 @@ def validar_puerta(x_puerta_clave: str = Header(default="")):
         )
 
 
-def armar_identidad(id_usuario, nombre_usuario, roles):
+def obtener_identidad(
+    x_id_usuario: str | None = Header(default=None),
+    x_nombre_usuario: str | None = Header(default=None),
+    x_roles_usuario: str | None = Header(default=None),
+):
     return {
-        "id_usuario": id_usuario,
-        "nombre_usuario": nombre_usuario,
-        "roles": roles
+        "id_usuario": x_id_usuario,
+        "nombre_usuario": x_nombre_usuario,
+        "roles": x_roles_usuario
     }
 
 
@@ -37,13 +43,9 @@ def estado():
 
 
 @app.get("/articulos", dependencies=[Depends(validar_puerta)])
-def articulos(
-    x_id_usuario: str | None = Header(default=None),
-    x_nombre_usuario: str | None = Header(default=None),
-    x_roles_usuario: str | None = Header(default=None),
-):
+def articulos(identidad: dict = Depends(obtener_identidad)):
     return {
-        "identidad": armar_identidad(x_id_usuario, x_nombre_usuario, x_roles_usuario),
+        "identidad": identidad,
         "articulos": [
             {"id": 1, "nombre": "Portatil", "precio": 900000},
             {"id": 2, "nombre": "Pantalla", "precio": 250000},
@@ -52,13 +54,9 @@ def articulos(
 
 
 @app.get("/pedidos", dependencies=[Depends(validar_puerta)])
-def pedidos(
-    x_id_usuario: str | None = Header(default=None),
-    x_nombre_usuario: str | None = Header(default=None),
-    x_roles_usuario: str | None = Header(default=None),
-):
+def pedidos(identidad: dict = Depends(obtener_identidad)):
     return {
-        "identidad": armar_identidad(x_id_usuario, x_nombre_usuario, x_roles_usuario),
+        "identidad": identidad,
         "pedidos": [
             {"id": 1001, "situacion": "pagado"},
             {"id": 1002, "situacion": "pendiente"}
