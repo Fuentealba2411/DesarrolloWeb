@@ -1,235 +1,351 @@
-# Mediterráneo
+# Mediterráneo — Evaluación 2
 
-Sitio web de **Mediterráneo**, un restaurante de cocina mediterránea (Grecia, Italia, España y Líbano). Incluye carta con fotos, carrito de pedidos, promociones, reservas, contacto y una página de delivery.
+Proyecto web de **Mediterráneo**, un restaurante de cocina mediterránea inspirada en Grecia, Italia, España y Líbano. El repositorio reúne el sitio web del restaurante (frontend) y una solución backend desarrollada con Python y FastAPI.
 
-Es un proyecto **100 % front-end**: HTML, CSS y JavaScript, sin build ni dependencias que instalar.
+El proyecto contempla carta con fotografías, promociones, reservas, contacto, delivery, carrito de compras y servicios backend para gestionar usuarios, pedidos, pagos de prueba y operaciones del restaurante.
 
-![Página de inicio](Frontend/docs/capturas/inicio.jpg)
+> **Estructura del repositorio:** el frontend se encuentra en `Frontend/` y el backend en `Mediterraneo-Evaluacion2-backend/Mediterraneo-Evaluacion2-codigo/`.
 
 ## Contenido
 
-- [Qué incluye](#qué-incluye)
-- [Tecnologías](#tecnologías)
-- [Cómo ejecutarlo](#cómo-ejecutarlo)
-- [Publicarlo con GitHub Pages](#publicarlo-con-github-pages)
-- [Estructura del proyecto](#estructura-del-proyecto)
-- [Cómo funciona](#cómo-funciona)
-- [Cómo modificarlo](#cómo-modificarlo)
-- [Accesibilidad](#accesibilidad)
-- [Limitaciones](#limitaciones)
+- [Componentes del proyecto](#componentes-del-proyecto)
+- [Frontend](#frontend)
+- [Backend](#backend)
+- [Cómo ejecutar el proyecto](#cómo-ejecutar-el-proyecto)
+- [Flujo de compra de prueba](#flujo-de-compra-de-prueba)
+- [Pruebas](#pruebas)
+- [Documentación del backend](#documentación-del-backend)
+- [Seguridad y recuperación](#seguridad-y-recuperación)
+- [Estructura del repositorio](#estructura-del-repositorio)
 - [Autores](#autores)
 - [Imágenes y licencia](#imágenes-y-licencia)
 
-## Qué incluye
+## Componentes del proyecto
 
-| Página | Archivo | Qué hace |
+| Componente | Ubicación | Tecnologías | Descripción |
+|---|---|---|---|
+| Frontend | `Frontend/` | HTML, CSS, JavaScript, Bootstrap | Sitio web del restaurante, carta, promociones, carrito y formularios. |
+| Backend | `Mediterraneo-Evaluacion2-backend/Mediterraneo-Evaluacion2-codigo/` | Python, FastAPI, SQLite | Servicios, persistencia, autenticación, pedidos, pagos de prueba y operaciones del restaurante. |
+
+La integración del frontend con el backend es opcional, de acuerdo con la aclaración docente del 8 de noviembre de 2026. El frontend recibido se conserva como apoyo de demostración. Los servicios del backend sí están integrados entre sí.
+
+## Frontend
+
+El frontend es un sitio web estático desarrollado con HTML, CSS y JavaScript, sin proceso de compilación ni dependencias que instalar. Puede ejecutarse de manera independiente.
+
+### Qué incluye
+
+| Página | Archivo | Funcionalidad |
 |---|---|---|
-| Inicio | `index.html` | Carrusel de promociones, "Más pedidos y novedades" y accesos a Desayunos, Almuerzos y Postres. |
-| Menú | `menu.html` | 13 platos con foto, filtro por categoría y búsqueda. Cada plato se agrega al carrito. |
+| Inicio | `index.html` | Carrusel de promociones, novedades y accesos a Desayunos, Almuerzos y Postres. |
+| Menú | `menu.html` | 13 platos con fotografía, filtro por categoría, búsqueda y opción para agregarlos al carrito. |
 | Promociones | `promociones.html` | Menú del día, 15 % en desayunos, postres 2x1 y delivery gratis sobre $20.000. |
-| Reserva | `reserva.html` | Formulario para grupos de 2 a 12 personas (no permite fechas pasadas). |
+| Reserva | `reserva.html` | Formulario para grupos de 2 a 12 personas; no permite fechas pasadas. |
 | Contacto | `contacto.html` | Formulario de contacto y datos del local. |
-| Delivery | `delivery.html` | Cómo pedir y datos del reparto. |
+| Delivery | `delivery.html` | Información sobre cómo pedir y el reparto. |
 | Nosotros | `nosotros.html` | Quiénes somos, misión, visión y equipo. |
 
-Además, todas las páginas comparten:
+Todas las páginas comparten:
 
-- **Carrito** en un panel lateral (offcanvas), con contador en el encabezado, total y botones para quitar platos o vaciarlo. Se conserva al recargar la página.
-- **Buscador** en el encabezado que lleva al menú con los resultados.
-- **Acceso de usuario** simulado en un modal: guarda el nombre y lo muestra en el botón "Perfil".
-- Diseño **responsive** (móvil, tablet y escritorio).
+- **Carrito de compras:** panel lateral con contador, total y opciones para quitar platos o vaciar el carrito. Conserva los datos al recargar la página.
+- **Buscador:** permite buscar desde el encabezado y lleva al menú con los resultados.
+- **Acceso de usuario:** modal simulado que guarda el nombre y lo muestra en el botón «Perfil».
+- **Diseño responsive:** adaptación a móviles, tablets y computadores.
 
-### Capturas
+### Tecnologías del frontend
 
-| Menú | Carrito |
-|---|---|
-| ![Menú](Frontend/docs/capturas/menu.jpg) | ![Carrito](Frontend/docs/capturas/carrito.jpg) |
-
-![Promociones](Frontend/docs/capturas/promociones.jpg)
-
-## Tecnologías
-
-- **HTML5** y **CSS3** (variables CSS para la paleta de colores).
+- **HTML5** y **CSS3**, con variables CSS para la paleta de colores.
 - **JavaScript** vanilla, sin frameworks.
-- [**Bootstrap 5.3.8**](https://getbootstrap.com/) para la grilla y los componentes (carrusel, offcanvas, modal).
-- [**Bootstrap Icons 1.11.3**](https://icons.getbootstrap.com/).
-- [**Google Fonts**](https://fonts.google.com/): *Figtree* (texto) y *Young Serif* (títulos).
+- **Bootstrap 5.3.8** para la grilla y componentes como carrusel, offcanvas y modal.
+- **Bootstrap Icons 1.11.3**.
+- **Google Fonts:** Figtree para texto y Young Serif para títulos.
 
-Bootstrap, los íconos y las fuentes se cargan desde CDN, así que **necesitas conexión a internet** para verlo con todos sus estilos.
+Bootstrap, los íconos y las fuentes se cargan desde CDN. Se necesita conexión a Internet para visualizarlos con todos sus estilos.
 
-## Cómo ejecutarlo
+### Ejecutar el frontend
 
-No hay nada que instalar ni compilar.
+1. Entra a la carpeta `Frontend/`.
+2. Abre `index.html` directamente en el navegador.
 
-**1. Descarga el proyecto**
-
-```bash
-**1. Descarga el ZIP desde el botón verde **Code → Download ZIP** y descomprímelo.**
-
-**2. Ábrelo en el navegador**
-
-La forma más simple es entrar a la carpeta `Frontend/` y hacer doble clic en `index.html`.
-
-**3. (Recomendado) Sírvelo con un servidor local**
-
-El doble clic funciona, pero un servidor local se parece más a cómo se verá el sitio ya publicado. Con Python (que ya viene en la mayoría de los computadores):
+También se recomienda utilizar un servidor local:
 
 ```bash
 cd Frontend
 python3 -m http.server 8000
 ```
 
-y abre <http://localhost:8000>. Si usas Visual Studio Code, también sirve la extensión **Live Server** (clic derecho sobre `index.html` → *Open with Live Server*).
+Luego abre <http://localhost:8000>.
 
-## Publicarlo con GitHub Pages
+Si utilizas Visual Studio Code, también puedes iniciar el sitio con la extensión **Live Server**, haciendo clic derecho sobre `index.html` y seleccionando *Open with Live Server*.
 
-Como es un sitio estático, puedes dejarlo online gratis. La única particularidad es que el sitio no está en la raíz del repositorio, sino dentro de la carpeta `Frontend/`, y GitHub Pages solo permite publicar desde la raíz o desde una carpeta `/docs`. Hay dos formas de resolverlo:
+### Publicar el frontend con GitHub Pages
 
-**Opción A: mover el sitio a `/docs`**
+El sitio está dentro de `Frontend/`, no en la raíz del repositorio. GitHub Pages permite publicar desde la raíz o desde una carpeta `/docs`. Hay dos alternativas:
 
-1. Renombra la carpeta `Frontend/` a `docs/` (o duplícala) en la raíz del repositorio, de modo que quede `docs/index.html`. Como el proyecto ya tiene una carpeta interna `docs/capturas/`, después de renombrar quedará como `docs/docs/capturas/` — funciona igual, pero si prefieres que se vea prolijo, renombra esa carpeta interna a algo como `capturas/`. En cualquier caso, ajusta las tres rutas de imágenes de este README (quítales el `Frontend/` inicial) para que sigan apuntando al lugar correcto.
+**Opción A: publicar desde `/docs`**
+
+1. Renombra o duplica `Frontend/` como `docs/` en la raíz del repositorio, de modo que quede `docs/index.html`.
 2. Ve a **Settings → Pages**.
-3. En **Build and deployment**, elige **Deploy from a branch**, selecciona la rama `main` y la carpeta `/docs`, y guarda.
-4. Espera un par de minutos. El sitio quedará en `https://<tu-usuario>.github.io/<tu-repositorio>/`.
+3. En **Build and deployment**, selecciona **Deploy from a branch**, la rama `main` y la carpeta `/docs`.
+4. Guarda los cambios y espera a que se publique.
 
-**Opción B: publicar `Frontend/` con una GitHub Action**
+Ten en cuenta que las capturas del README están dentro de `Frontend/docs/capturas/`. Si mueves la carpeta, ajusta también las rutas de esas imágenes.
 
-1. Ve a **Settings → Pages** y en **Build and deployment** elige **GitHub Actions**.
-2. Crea el archivo `.github/workflows/pages.yml` con una acción que suba solo la carpeta `Frontend/` (por ejemplo, con [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) apuntando a `path: Frontend`).
-3. Cada vez que hagas push a `main`, la Action publicará el contenido de `Frontend/` en `https://<tu-usuario>.github.io/<tu-repositorio>/`.
+**Opción B: publicar con GitHub Actions**
 
-La opción A es más simple si no usas GitHub Actions en otra parte del repositorio.
+1. Ve a **Settings → Pages** y selecciona **GitHub Actions**.
+2. Crea `.github/workflows/pages.yml` con un flujo que publique únicamente el contenido de `Frontend/`, por ejemplo, usando `actions/upload-pages-artifact` con `path: Frontend`.
+3. Cada push a `main` podrá publicar el sitio.
 
-## Estructura del proyecto
+### Cómo funciona el frontend
 
-Todo el sitio vive dentro de la carpeta `Frontend/`; no está repartido en la raíz del repositorio.
+- `js/carrito.js`: almacena el pedido en `localStorage`, bajo la clave `carrito`, como objetos `{ nombre, precio, cantidad }`. Incluye las funciones `agregarAlCarrito(nombre, precio)`, `quitarDelCarrito(nombre)` y `mostrarCarrito()`.
+- `js/menu.js`: contiene el arreglo `platos`, genera las tarjetas y permite filtrar por categoría o texto. Admite parámetros en la URL, como `menu.html?categoria=Postres` y `menu.html?buscar=miel`.
+- `js/comun.js`: gestiona el buscador y el acceso simulado de usuario. Guarda el nombre en `localStorage`, bajo la clave `usuario`.
+- `js/inicio.js`: activa el carrusel de promociones y respeta la preferencia `prefers-reduced-motion`.
+- `js/reserva.js` y `js/contacto.js`: validan los formularios y muestran mensajes de confirmación en la página.
 
+### Modificar el frontend
+
+- **Agregar un plato:** guarda su fotografía en `Frontend/imagenes/` y agrega un objeto al arreglo `platos` de `Frontend/js/menu.js`. Las categorías disponibles son `Desayunos`, `Almuerzos` y `Postres`.
+- **Cambiar colores:** modifica las variables CSS al inicio de `Frontend/css/estilo.css`.
+- **Cambiar promociones:** modifica las clases de imágenes del carrusel en `estilo.css` y las imágenes de las tarjetas en `promociones.html`.
+- **Cambiar datos del local:** revisa los pies de página y los archivos `contacto.html`, `reserva.html` y `delivery.html`.
+
+### Accesibilidad del frontend
+
+- Idioma declarado mediante `lang="es"`.
+- Textos alternativos en fotografías.
+- Etiquetas descriptivas (`aria-label`) para botones con íconos o texto genérico.
+- Indicador de foco visible para navegación con teclado.
+- Contador del carrito con `aria-live` y mensajes de formularios con `role="status"`.
+- Respeto por la preferencia `prefers-reduced-motion`.
+
+### Limitaciones del frontend independiente
+
+Cuando se ejecuta por sí solo, el frontend conserva su comportamiento estático:
+
+- Los formularios de reserva y contacto muestran una confirmación, pero no envían información a un servidor.
+- El inicio de sesión es simulado y no valida ni almacena contraseñas.
+- El carrito no procesa pagos; el flujo independiente informa que el pedido se confirma por teléfono o WhatsApp.
+- El carrito y el nombre de usuario se almacenan en el `localStorage` del navegador.
+
+Estas limitaciones describen el frontend ejecutado de forma independiente; las funcionalidades y flujos del backend se detallan a continuación.
+
+## Backend
+
+Backend desarrollado en **Python y FastAPI** para gestionar los datos y eventos de Mediterráneo. Incluye los diez módulos de la evaluación, microservicios privados, persistencia SQLite por servicio, autenticación real, API Gateway, gestor de secretos local y GraphQL.
+
+### Tecnologías y arquitectura
+
+- Python y FastAPI.
+- SQLite, con una base de datos por servicio.
+- Microservicios con comunicación interna protegida.
+- API Gateway como punto de entrada externo.
+- Autenticación mediante JWT y sesiones.
+- Gestor local de secretos.
+- API GraphQL y contratos OpenAPI.
+
+Se eligieron FastAPI y SQLite siguiendo la indicación de utilizar Python/FastAPI trabajada en clases. El documento de referencia Caso19 menciona Oracle y .NET/J2EE; esta diferencia se declara en el informe del proyecto.
+
+### Requisitos
+
+- **Python 3.12 o 3.14**, con pip.
+- Apache y XAMPP no son necesarios.
+
+La ejecución original se verificó con Python 3.12 y el recorrido manual del estudiante funcionó en Windows con Python 3.14.
+
+### Ejecutar el backend en Windows
+
+Abre una terminal dentro de:
+
+```text
+Mediterraneo-Evaluacion2-backend/Mediterraneo-Evaluacion2-codigo/
 ```
-Frontend/
-├── index.html              # Inicio
-├── menu.html               # Carta con filtros y búsqueda
-├── promociones.html
-├── reserva.html
-├── contacto.html
-├── delivery.html
-├── nosotros.html
-├── css/
-│   └── estilo.css          # Paleta, tipografías y estilos propios
-├── js/
-│   ├── comun.js            # Buscador y acceso de usuario (todas las páginas)
-│   ├── carrito.js          # Carrito de compras (todas las páginas)
-│   ├── inicio.js           # Carrusel de promociones
-│   ├── menu.js             # Lista de platos, filtros y búsqueda
-│   ├── reserva.js          # Formulario de reserva
-│   └── contacto.js         # Formulario de contacto
-├── imagenes/               # Fotos de los platos y de las promociones
-└── docs/capturas/          # Capturas usadas en este README
+
+Crea el entorno virtual, instala las dependencias e inicia los servicios:
+
+```bat
+py -3.14 -m venv .venv
+.venv\Scripts\python -m pip install -r requirements.txt
+.venv\Scripts\python -X utf8 scripts\iniciar.py
 ```
 
-## Cómo funciona
+También puedes utilizar `iniciar.bat` después de instalar las dependencias.
 
-Cada página HTML carga primero `comun.js` y `carrito.js`, y después el script propio de esa página.
+### Ejecutar el backend en Linux o macOS
 
-### Carrito (`js/carrito.js`)
+Desde la carpeta `Mediterraneo-Evaluacion2-backend/Mediterraneo-Evaluacion2-codigo/`:
 
-- Guarda el pedido en `localStorage` bajo la clave `carrito`, como una lista de objetos `{ nombre, precio, cantidad }`.
-- `agregarAlCarrito(nombre, precio)` suma una unidad si el plato ya existe; `quitarDelCarrito(nombre)` lo elimina.
-- `mostrarCarrito()` vuelve a dibujar la lista, el total y el contador cada vez que cambia el pedido.
-- Los precios se formatean con `toLocaleString("es-CL")`, por ejemplo `$12.500`.
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python scripts/iniciar.py
+```
 
-### Menú (`js/menu.js`)
+### Acceder al backend
 
-- Todos los platos están en el arreglo `platos`, con nombre, categoría, descripción, precio e imagen.
-- Las tarjetas se generan con JavaScript a partir de ese arreglo.
-- Filtra por categoría (**Todos**, **Desayunos**, **Almuerzos**, **Postres**) y por texto, que se busca en el nombre y la descripción.
-- Lee la URL, así que se pueden enlazar vistas concretas:
+Abre <https://localhost:8443>.
 
-  | URL | Resultado |
-  |---|---|
-  | `menu.html?categoria=Postres` | Solo los postres. |
-  | `menu.html?buscar=miel` | Platos que mencionan "miel". |
-  | `menu.html?categoria=Almuerzos&buscar=pita` | Combinación de ambos. |
+En el primer inicio se genera un certificado autofirmado para desarrollo. El navegador mostrará una advertencia hasta que confíes en `.runtime/cert.pem`. Comprueba que estás accediendo a tu servidor local antes de aceptar el certificado. Los clientes internos verifican ese certificado; para una instalación pública se necesita un certificado válido de la organización.
 
-### Comunes (`js/comun.js`)
+Mantén abierta la terminal mientras utilizas el sistema. **Ctrl+C detiene todos los servicios.** Si necesitas detener una instancia anterior en Windows, abre otra terminal en la carpeta del backend y ejecuta:
 
-- Rellena el buscador con el término de la URL (`?buscar=`).
-- El modal "Iniciar sesión" toma la parte del correo antes de la `@`, la guarda en `localStorage` (clave `usuario`) y la muestra en el botón "Perfil".
+```bat
+.venv\Scripts\python -X utf8 scripts\detener.py
+```
 
-### Inicio (`js/inicio.js`)
+Los datos se guardan en `.runtime/data/` y se conservan al reiniciar. La configuración inicial no reemplaza las claves existentes. Si un puerto está ocupado, cierra la instancia anterior y vuelve a iniciar.
 
-Activa el carrusel de promociones. Si el sistema del usuario tiene activada la opción de **reducir movimiento** (`prefers-reduced-motion`), el carrusel no avanza solo.
+## Flujo de compra de prueba
 
-### Formularios (`js/reserva.js` y `js/contacto.js`)
+El primer arranque genera cuentas de demostración `admin`, `owner`, `cashier` y `dispatch` en:
 
-- Validan con los atributos HTML (`required`, `type="email"`) y muestran un mensaje de confirmación en la misma página.
-- La fecha mínima de la reserva es el día de hoy.
+```text
+.runtime/cuentas-demo.json
+```
 
-## Cómo modificarlo
+Abre ese archivo local para consultar los correos y las claves generadas. Utiliza solamente datos ficticios.
 
-### Agregar o cambiar un plato
+1. Entra a **Mi cuenta** y crea una cuenta con un RUN de prueba cuyo dígito verificador sea válido y una contraseña de al menos 10 caracteres.
+2. En otra terminal, desde la carpeta del backend, ejecuta:
 
-1. Guarda la foto en `imagenes/`. Lo ideal es formato **3:2**, de unos 800 px de ancho y en JPG, con un nombre en minúsculas y con guiones (`tabbouleh.jpg`).
-2. Agrega un objeto al arreglo `platos` de `js/menu.js`:
-
-   ```js
-   { nombre: "Tabbouleh", categoria: "Almuerzos", descripcion: "Perejil, tomate, trigo burgol y limón.", precio: 5500, imagen: "tabbouleh.jpg" }
+   ```bat
+   .venv\Scripts\python -X utf8 scripts\operador.py correos
    ```
 
-   La categoría debe ser una de: `Desayunos`, `Almuerzos` o `Postres`.
+   Esta consola representa el buzón sandbox del proveedor. Copia el código de verificación de tu cuenta.
+3. En **Mi cuenta**, ingresa el código en **Verificar correo**. Luego inicia sesión desde **Perfil**.
+4. Agrega platos desde **Menú**, abre el carrito y elige **Pedir por delivery**. Escribe solamente la dirección. Para una prueba sin Internet, utiliza `Dirección de prueba 123, Santiago`. Los domicilios reales se consultan mediante Photon y deben quedar dentro de 3 km del punto de referencia.
+5. En **Mi cuenta**, selecciona **Iniciar pago de prueba** y copia el identificador generado.
+6. En la terminal del operador, aprueba el pago:
 
-### Cambiar los colores
+   ```bat
+   .venv\Scripts\python -X utf8 scripts\operador.py aprobar IDENTIFICADOR_DEL_PAGO
+   ```
 
-La paleta está al inicio de `css/estilo.css`:
+7. Actualiza tus pedidos: el pedido aparecerá como pagado. Puedes consultar el comprobante y anularlo antes de iniciar la preparación.
+8. Con una cuenta de cajero o administración, entra a **Gestión del restaurante**. Desde allí puedes enviar el comprobante al buzón de prueba, imprimir la orden de despacho y avanzar por los estados preparando → despachado → entregado.
 
-```css
-:root {
-    --rojo: #9A3B3B;
-    --rojo-oscuro: #7F2F2F;
-    --mostaza: #D98E04;
-    --capuccino: #B08968;
-    --crema: #EDE0C8;
-    --crema-clara: #F6EEDF;
-    --cafe: #2B1B17;
-}
+El operador sandbox tiene una identidad técnica independiente y no permite que el comprador declare pagado su propio pedido. El aviso de pago lleva firma HMAC, fecha y evento idempotente.
+
+**El entorno de demostración no realiza cobros, envía correos externos ni emite documentos tributarios reales.** El adaptador conserva los contratos y las transiciones para la demostración académica.
+
+## Pruebas
+
+Con la aplicación normal detenida y los puertos libres, ejecuta desde la carpeta del backend:
+
+```bat
+.venv\Scripts\python -X utf8 scripts\verificar.py
 ```
 
-### Cambiar las fotos de las promociones
+El script crea un entorno temporal independiente, inicia los nueve procesos, ejecuta pruebas HTTP, inyecta fallos de dependencias, mide carga y verifica la persistencia después de un reinicio completo. No elimina ni modifica los datos de tu instancia normal. Vuelve a escribir las evidencias de `docs/` con los resultados obtenidos en tu equipo.
 
-- **Carrusel del inicio:** cada slide usa un círculo con una clase (`circulo-menu-dia`, `circulo-desayunos`, `circulo-postres`) cuya imagen se define en `css/estilo.css`.
-- **Página de promociones:** cada tarjeta tiene su `<img>` en `promociones.html`.
+### Comprobación opcional del navegador
 
-### Cambiar horarios, teléfono y dirección
+Si tienes Node.js, puedes realizar pruebas adicionales con Playwright:
 
-Estos datos están escritos directamente en el HTML, en el pie de página de cada archivo y en `contacto.html`, `reserva.html` y `delivery.html`. Si los cambias, hazlo en todos los archivos.
+```bat
+npm install --no-save playwright
+npx playwright install chromium
+.venv\Scripts\python -X utf8 scripts\verificar.py --navegador
+```
 
-## Accesibilidad
+No entregues `node_modules/`. Los cuatro anchos seleccionados para la comprobación son 375, 768, 1024 y 1440 píxeles. La disponibilidad y los resultados observados están detallados en el informe.
 
-- Idioma de la página declarado (`lang="es"`).
-- Textos alternativos en las fotos de los platos y de las promociones.
-- Los botones que solo tienen ícono o dicen "Agregar" tienen `aria-label` descriptivo (por ejemplo, *Agregar Moussaka al carrito*).
-- Indicador de foco visible al navegar con teclado.
-- El contador del carrito usa `aria-live` y los mensajes de los formularios usan `role="status"`.
-- Respeta `prefers-reduced-motion` en el carrusel.
+## Documentación del backend
 
-## Limitaciones
+Dentro de `Mediterraneo-Evaluacion2-backend/Mediterraneo-Evaluacion2-codigo/` se encuentra la documentación técnica:
 
-Es un proyecto de front-end, así que:
+- `docs/Informe.html`: informe de arquitectura y de los diez módulos, legible sin Internet.
+- `docs/Informe.md`: versión editable del informe.
+- `docs/diagramas/`: UML de dominio, UML del gateway, componentes y secuencia; incluye fuentes Graphviz DOT y Mermaid, además de versiones SVG.
+- `docs/servicios.csv`, `docs/permisos.csv` y `docs/trazabilidad.csv`: matrices editables.
+- `docs/contratos/`: contratos OpenAPI de los servicios, schema GraphQL y ejemplos ficticios.
+- `docs/resultados-*.json` y `docs/resultados-pruebas.xml`: resultados de pruebas obtenidos.
+- `docs/resultados-revision-final.json`: repetición de pruebas del 8 de noviembre sobre una copia recién extraída. Las cifras anteriores del informe corresponden a la ejecución del 7 de noviembre.
+- `docs/Capturas.md`: guía de capturas del informe.
 
-- **No hay servidor ni base de datos.** Los formularios de reserva y contacto solo muestran un mensaje de confirmación; no envían nada.
-- **El inicio de sesión es simulado.** No valida ni guarda contraseñas.
-- **El carrito no procesa pagos.** El pedido se confirma por teléfono o WhatsApp, como se indica en la página de Delivery.
-- Los datos (carrito y nombre de usuario) viven en el `localStorage` de cada navegador.
-- Sin internet no cargan Bootstrap, los íconos ni las fuentes.
+## Seguridad y recuperación
+
+- Solo `gateway:8443` sirve páginas externas. Los demás procesos escuchan exclusivamente en `127.0.0.1`, utilizan HTTPS y exigen identidad de servicio en sus operaciones. No expongas los puertos privados a todas las interfaces de red.
+- No subas `.runtime/`, `.venv/`, `node_modules/`, claves, contraseñas ni datos de ejecución. El `.gitignore` del backend excluye estos contenidos.
+- Los JWT se almacenan en cookies `HttpOnly`, `Secure` y `SameSite Strict`; caducan a los 30 minutos. El cierre de sesión y los cambios de rol revocan sesiones. Las operaciones autenticadas requieren protección CSRF.
+- Si un pedido queda en estado `cancelando`, entra con administración y utiliza **Reconciliar pedidos interrumpidos o vencidos**. La operación también libera reservas impagas de más de 15 minutos. Debe ejecutarse periódicamente durante la demostración; no se incluye un scheduler de producción.
+- Para rotar identidades y claves después de una filtración, detén el sistema y ejecuta `scripts/rotar.py`. Luego reinicia. Esta operación invalida las sesiones anteriores, pero no borra los pedidos.
+- Para respaldar los datos, copia las bases con los procesos detenidos y conserva la configuración cifrada en un lugar seguro.
+
+## Direcciones de delivery
+
+El navegador envía únicamente la dirección y los ítems. El servicio Orders solicita la ubicación al adaptador privado provider y calcula el radio de cobertura. Los campos `lat` y `lon` del contrato anterior siguen siendo opcionales por compatibilidad, pero se ignoran al decidir la cobertura.
+
+Para demostrar el flujo sin Internet existe el domicilio ficticio `Dirección de prueba 123, Santiago`. El alias `Direccion ficticia 123` se conserva para pruebas anteriores. Este catálogo de demostración no asigna ubicaciones inventadas a domicilios reales.
+
+Para direcciones reales se consulta Photon mediante HTTPS. La configuración contempla un plazo de cinco segundos, una consulta simultánea, un intervalo mínimo de un segundo y caché local de 24 horas. Solo se transmite el texto de la dirección. El formulario informa el proveedor y muestra atribución a OpenStreetMap.
+
+- Servicio: <https://photon.komoot.io/api/>
+- Proyecto Photon: <https://github.com/komoot/photon>
+- Documentación de la API: <https://github.com/komoot/photon/blob/master/docs/api-v1.md>
+
+La URL del geocodificador puede cambiarse mediante la variable `GEOCODER_URL` al iniciar los servicios, sin modificar el frontend. Si no se encuentra un domicilio numerado, hay varias coincidencias, está fuera de cobertura o el proveedor falla, el pedido no se crea y no se reserva stock.
+
+El geocodificador ayuda a ubicar un domicilio, pero no acredita que una persona resida en él. Las pruebas automatizadas utilizan un proveedor HTTP local controlado, sin enviar domicilios ficticios al servidor público. La conectividad al servidor Photon desde el equipo del estudiante no ha sido confirmada.
+
+## Decisiones y alcance académico
+
+Las reglas del caso de referencia de sushi se adaptan al restaurante Mediterráneo, conservando el frontend y su carta. El informe identifica los límites del proveedor de prueba, la boleta académica y las decisiones propuestas sobre horarios, delivery y promociones. Estas adaptaciones no se presentan como instrucciones verbales confirmadas.
+
+La portada de la Evaluación 2 indica el 9 de noviembre de 2026; otra sección deja la fecha y el medio sujetos a comunicación del docente.
+
+## Estructura del repositorio
+
+La estructura general del repositorio es la siguiente:
+
+```text
+DesarrolloWeb/
+├── Frontend/
+│   ├── index.html
+│   ├── menu.html
+│   ├── promociones.html
+│   ├── reserva.html
+│   ├── contacto.html
+│   ├── delivery.html
+│   ├── nosotros.html
+│   ├── css/
+│   │   └── estilo.css
+│   ├── js/
+│   │   ├── comun.js
+│   │   ├── carrito.js
+│   │   ├── inicio.js
+│   │   ├── menu.js
+│   │   ├── reserva.js
+│   │   └── contacto.js
+│   ├── imagenes/
+│   └── docs/capturas/
+│
+└── Mediterraneo-Evaluacion2-backend/
+    └── Mediterraneo-Evaluacion2-codigo/
+        ├── scripts/
+        ├── docs/
+        │   ├── diagramas/
+        │   └── contratos/
+        ├── requirements.txt
+        ├── iniciar.bat
+        └── ...
+```
+
+La estructura interna del backend puede ampliarse con los archivos y directorios de ejecución que se generan localmente. No subas `.runtime/`, `.venv/` ni `node_modules/` al repositorio.
 
 ## Autores
 
-Sitio desarrollado por:
-
+**Frontend:**
 - Maximiliano Urizar
 - Fabian Monardez
 
+**Backend:** solución desarrollada para la Evaluación 2 de Mediterráneo.
+
 ## Imágenes y licencia
 
-Las fotografías de la carpeta `imagenes/` son material de terceros y **no fueron tomadas por los autores**; pertenecen a sus respectivos dueños. Antes de reutilizar este proyecto con fines comerciales, verifica los derechos de cada imagen o reemplázalas por fotos propias.
+Las fotografías de la carpeta `Frontend/imagenes/` son material de terceros y no fueron tomadas por los autores; pertenecen a sus respectivos dueños. Antes de reutilizar el proyecto con fines comerciales, verifica los derechos de cada imagen o reemplázalas por fotografías propias.
 
-Este repositorio todavía no define una licencia para el código. Si quieres que otras personas puedan reutilizarlo, agrega un archivo `LICENSE` (por ejemplo, [MIT](https://choosealicense.com/licenses/mit/)).
+Este repositorio todavía no define una licencia para el código. Si quieres permitir que otras personas reutilicen el proyecto, agrega un archivo `LICENSE` (por ejemplo, [MIT](https://choosealicense.com/licenses/mit/)).
