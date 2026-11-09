@@ -1,0 +1,14 @@
+[
+  {
+    "prueba": "inventory inaccesible durante agregación",
+    "resultado": "detalle histórico conservado, descripción actual nula y aviso explícito"
+  },
+  {
+    "prueba": "administrador de secretos inaccesible",
+    "resultado": "503; acceso cerrado, sin secretos de respaldo incrustados"
+  },
+  {
+    "prueba": "payments caído durante anulación",
+    "resultado": "estado cancelando persistente; reconciliación completa anulación y devuelve stock sin duplicarlo"
+  }
+]

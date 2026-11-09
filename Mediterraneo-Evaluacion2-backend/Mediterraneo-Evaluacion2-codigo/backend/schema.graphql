@@ -1,0 +1,21 @@
+type LineaPedido {
+  id: Int!
+  nombre: String!
+  descripcionActual: String
+  cantidad: Int!
+  precio: Int!
+  descuento: Int!
+  subtotal: Int!
+}
+type ResumenPedido {
+  id: ID!
+  estado: String!
+  total: Int!
+  direccion: String
+  lineas: [LineaPedido!]!
+  aviso: String
+}
+type Query {
+  resumenPedido(id: ID!): ResumenPedido
+  misPedidos(limit: Int = 20, offset: Int = 0): [ResumenPedido!]!
+}

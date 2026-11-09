@@ -1,0 +1,37 @@
+{
+  "fecha": "2026-11-08",
+  "origen": "Copia recién extraída del ZIP de entrega, con dependencias de requirements.txt en entorno nuevo",
+  "pruebas_http": {
+    "aprobadas": 17,
+    "fallidas": 0,
+    "duracion_s": 8.21
+  },
+  "resiliencia": "3 escenarios aprobados",
+  "carga": {
+    "tipo": "medición local de prueba, no tráfico real del restaurante",
+    "entorno": {
+      "python": "3.12.14",
+      "plataforma": "Linux",
+      "cpu_logicas": 9
+    },
+    "concurrencia": 5,
+    "solicitudes": 100,
+    "duracion_s": 0.675,
+    "p95_ms": 73.33,
+    "throughput_rps": 148.2,
+    "errores": 0,
+    "rss_servicios_mib": 547.52,
+    "cpu_porcentaje_suma_procesos": 270.8,
+    "objetivo_de_equipo": {
+      "p95_ms": 1000,
+      "errores": 0
+    },
+    "advertencia": "CPU es promedio observado al final del intervalo; RSS es instantánea, no máximo. Incluye HTTPS. Datos ficticios del entorno temporal de integración."
+  },
+  "persistencia": {
+    "reinicio": "nueve procesos detenidos y reiniciados",
+    "pedido_entregado_conservado": true,
+    "sesion_conservada_hasta_expiracion": true
+  },
+  "alcance": "Pruebas ejecutadas en Linux Python 3.12.14. La demostración manual en Windows se documenta en el informe Word. No se verificó conexión a Photon público."
+}

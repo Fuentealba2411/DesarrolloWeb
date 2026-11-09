@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant T as Operador sandbox
+    participant P as Provider
+    participant M as Payments
+    participant O as Orders
+    participant G as API Gateway
+    T->>P: Aprobar checkout con identidad técnica
+    P->>M: Evento HMAC con fecha e ID
+    M->>O: Marcar pagado (una vez)
+    O-->>M: Pago confirmado
+    M-->>P: Evento procesado
+    P-->>T: Aprobación de prueba
+    G->>O: Personal solicita preparar
+    O-->>G: Estado preparando, solo tras pago
+    G->>O: Cajero solicita enviar comprobante
+    O->>P: Comprobante académico idempotente
+    P-->>O: Entregado al buzón sandbox
+    O-->>G: Envío confirmado
