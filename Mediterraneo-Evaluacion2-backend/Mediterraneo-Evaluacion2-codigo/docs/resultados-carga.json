@@ -1,0 +1,23 @@
+{
+  "tipo": "medición local de prueba, no tráfico real del restaurante",
+  "entorno": {
+    "python": "3.12.14",
+    "plataforma": "Linux",
+    "cpu_logicas": 9
+  },
+  "concurrencia": 5,
+  "solicitudes": 100,
+  "duracion_s": 0.232,
+  "p95_ms": 23.41,
+  "throughput_rps": 430.53,
+  "errores": 0,
+  "rss_servicios_mib": 538.67,
+  "cpu_porcentaje_suma_procesos": 270.5,
+  "objetivo_de_equipo": {
+    "p95_ms": 1000,
+    "errores": 0
+  },
+  "advertencia": "CPU es promedio observado al final del intervalo; RSS es instantánea, no máximo. Incluye HTTPS. Datos ficticios del entorno temporal de integración.",
+  "version_entrega": "1.1",
+  "fecha_verificacion": "2026-11-07"
+}

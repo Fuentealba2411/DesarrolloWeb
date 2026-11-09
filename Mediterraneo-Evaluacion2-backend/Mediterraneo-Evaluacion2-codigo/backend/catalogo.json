@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Shakshuka",
+    "categoria": "Desayunos",
+    "descripcion": "Huevos cocidos en salsa de tomate, pimentón y comino, con pan.",
+    "precio": 6500,
+    "imagen": "shakshuka.jpg",
+    "id": 1,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Tostada con tomate",
+    "categoria": "Desayunos",
+    "descripcion": "Pan de masa madre con tomate rallado, aceite de oliva y orégano.",
+    "precio": 4200,
+    "imagen": "tostada-tomate.jpg",
+    "id": 2,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Yogur griego con miel",
+    "categoria": "Desayunos",
+    "descripcion": "Yogur natural, miel y nueces.",
+    "precio": 3500,
+    "imagen": "yogur-miel.jpg",
+    "id": 3,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Labneh con pita",
+    "categoria": "Desayunos",
+    "descripcion": "Queso de yogur con zaatar, aceitunas y pan pita tibio.",
+    "precio": 4800,
+    "imagen": "labneh-pita.jpg",
+    "id": 4,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Ensalada griega",
+    "categoria": "Almuerzos",
+    "descripcion": "Tomate, pepino, aceitunas kalamata y queso feta con orégano.",
+    "precio": 5900,
+    "imagen": "ensalada-griega.jpg",
+    "id": 5,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Moussaka",
+    "categoria": "Almuerzos",
+    "descripcion": "Berenjena, carne, papas y bechamel gratinada al horno.",
+    "precio": 9800,
+    "imagen": "moussaka.jpg",
+    "id": 6,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Paella de mariscos",
+    "categoria": "Almuerzos",
+    "descripcion": "Arroz con azafrán, choritos, camarones y calamar.",
+    "precio": 12500,
+    "imagen": "paella.jpg",
+    "id": 7,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Falafel con hummus",
+    "categoria": "Almuerzos",
+    "descripcion": "Garbanzos, comino y tahini, con pan pita tibio.",
+    "precio": 7900,
+    "imagen": "falafel.jpg",
+    "id": 8,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Pasta al pesto",
+    "categoria": "Almuerzos",
+    "descripcion": "Fusilli con albahaca, piñones y parmesano.",
+    "precio": 8500,
+    "imagen": "pasta-pesto.jpg",
+    "id": 9,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Merluza a la plancha",
+    "categoria": "Almuerzos",
+    "descripcion": "Merluza con limón, papas al horno y hierbas.",
+    "precio": 10500,
+    "imagen": "merluza.jpg",
+    "id": 10,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Baklava",
+    "categoria": "Postres",
+    "descripcion": "Masa filo, nueces y miel.",
+    "precio": 3900,
+    "imagen": "baklava.jpg",
+    "id": 11,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Panna cotta",
+    "categoria": "Postres",
+    "descripcion": "Crema de vainilla con salsa de frutos rojos.",
+    "precio": 4200,
+    "imagen": "panna-cotta.jpg",
+    "id": 12,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "nombre": "Loukoumades",
+    "categoria": "Postres",
+    "descripcion": "Buñuelos fritos con miel y canela.",
+    "precio": 3800,
+    "imagen": "loukoumades.jpg",
+    "id": 13,
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "id": 14,
+    "nombre": "Menú del día",
+    "categoria": "Almuerzos",
+    "descripcion": "Entrada, fondo y bebida del día. Martes a viernes de 12:30 a 15:30.",
+    "precio": 8900,
+    "imagen": "menu-del-dia.jpg",
+    "stock": 30,
+    "disponible": true
+  }
+]

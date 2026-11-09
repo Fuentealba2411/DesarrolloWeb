@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant N as Navegador
+    participant G as API Gateway
+    participant O as Orders
+    participant I as Inventory
+    participant P as Payments
+    N->>G: POST pedido (sesión y CSRF)
+    G->>O: IDs, cantidades e identidad verificada
+    O->>I: Reservar stock (order_id idempotente)
+    I-->>O: Productos y precios oficiales
+    O-->>G: Pedido pendiente_pago y total
+    G-->>N: Pedido creado
+    N->>G: Iniciar pago (solo order_id)
+    G->>P: Crear checkout del propietario
+    P->>O: Consultar total y estado oficial
+    O-->>P: Total del pedido
+    P-->>G: Identificador de checkout sandbox
+    G-->>N: Esperar confirmación independiente
