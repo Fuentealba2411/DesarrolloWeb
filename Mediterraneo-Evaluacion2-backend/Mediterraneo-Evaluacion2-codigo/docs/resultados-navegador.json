@@ -1,0 +1,171 @@
+{
+  "checks": [
+    {
+      "pantalla": "index.html",
+      "ancho": 375,
+      "desborde": false
+    },
+    {
+      "pantalla": "menu.html",
+      "ancho": 375,
+      "desborde": false
+    },
+    {
+      "pantalla": "promociones.html",
+      "ancho": 375,
+      "desborde": false
+    },
+    {
+      "pantalla": "contacto.html",
+      "ancho": 375,
+      "desborde": false
+    },
+    {
+      "pantalla": "reserva.html",
+      "ancho": 375,
+      "desborde": false
+    },
+    {
+      "pantalla": "cuenta.html",
+      "ancho": 375,
+      "desborde": false
+    },
+    {
+      "pantalla": "pedido.html",
+      "ancho": 375,
+      "desborde": false
+    },
+    {
+      "pantalla": "gestion.html",
+      "ancho": 375,
+      "desborde": false
+    },
+    {
+      "pantalla": "index.html",
+      "ancho": 768,
+      "desborde": false
+    },
+    {
+      "pantalla": "menu.html",
+      "ancho": 768,
+      "desborde": false
+    },
+    {
+      "pantalla": "promociones.html",
+      "ancho": 768,
+      "desborde": false
+    },
+    {
+      "pantalla": "contacto.html",
+      "ancho": 768,
+      "desborde": false
+    },
+    {
+      "pantalla": "reserva.html",
+      "ancho": 768,
+      "desborde": false
+    },
+    {
+      "pantalla": "cuenta.html",
+      "ancho": 768,
+      "desborde": false
+    },
+    {
+      "pantalla": "pedido.html",
+      "ancho": 768,
+      "desborde": false
+    },
+    {
+      "pantalla": "gestion.html",
+      "ancho": 768,
+      "desborde": false
+    },
+    {
+      "pantalla": "index.html",
+      "ancho": 1024,
+      "desborde": false
+    },
+    {
+      "pantalla": "menu.html",
+      "ancho": 1024,
+      "desborde": false
+    },
+    {
+      "pantalla": "promociones.html",
+      "ancho": 1024,
+      "desborde": false
+    },
+    {
+      "pantalla": "contacto.html",
+      "ancho": 1024,
+      "desborde": false
+    },
+    {
+      "pantalla": "reserva.html",
+      "ancho": 1024,
+      "desborde": false
+    },
+    {
+      "pantalla": "cuenta.html",
+      "ancho": 1024,
+      "desborde": false
+    },
+    {
+      "pantalla": "pedido.html",
+      "ancho": 1024,
+      "desborde": false
+    },
+    {
+      "pantalla": "gestion.html",
+      "ancho": 1024,
+      "desborde": false
+    },
+    {
+      "pantalla": "index.html",
+      "ancho": 1440,
+      "desborde": false
+    },
+    {
+      "pantalla": "menu.html",
+      "ancho": 1440,
+      "desborde": false
+    },
+    {
+      "pantalla": "promociones.html",
+      "ancho": 1440,
+      "desborde": false
+    },
+    {
+      "pantalla": "contacto.html",
+      "ancho": 1440,
+      "desborde": false
+    },
+    {
+      "pantalla": "reserva.html",
+      "ancho": 1440,
+      "desborde": false
+    },
+    {
+      "pantalla": "cuenta.html",
+      "ancho": 1440,
+      "desborde": false
+    },
+    {
+      "pantalla": "pedido.html",
+      "ancho": 1440,
+      "desborde": false
+    },
+    {
+      "pantalla": "gestion.html",
+      "ancho": 1440,
+      "desborde": false
+    },
+    {
+      "flujo": "registro -> correo sandbox -> sesión -> catálogo -> pedido -> pago sandbox -> comprobante",
+      "resultado": "correcto"
+    }
+  ],
+  "erroresJavaScript": [],
+  "version_entrega": "1.1",
+  "fecha_verificacion": "2026-11-07"
+}

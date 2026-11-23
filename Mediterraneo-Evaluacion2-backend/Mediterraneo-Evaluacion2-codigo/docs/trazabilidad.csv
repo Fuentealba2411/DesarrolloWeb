@@ -1,0 +1,15 @@
+﻿requisito,descripcion,pantalla,servicios,prueba,resultado,evidencia
+RF01,Catálogo y pedido,P01/P02/P08/P09,S01/S08/S09a/S09b,test_catalogo_anonimo_y_datos_publicos; test_pedido_idempotente_precios_y_stock,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+RF02,Preparación tras pago,P08/P10,S10/S12,test_pago_firmado_duplicados_despacho_y_comprobante,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+RF03,Anulación con motivo,P08/P10,S09c,test_anulacion_reembolso_y_recuperacion_stock,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+RF04,Venta solo clientes registrados,P08/P09/P10,S02/S08/S10,test_registro_validacion_correo_y_sesion,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+RF05/RF06/RF11,Registro y correo validado,P08/P10,S02a/S02c/S03b/S19,test_registro_validacion_correo_y_sesion,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+RF07,Disponibilidad,P02/P10,S15/S08,test_stock_concurrente_sin_sobreventa,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+RF08,Comprobante digital y correo,P08/P10,S13,test_pago_firmado_duplicados_despacho_y_comprobante,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+RF09,Reporte por período,P10,S16,test_admin_catalogo_roles_reporte,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+RF10,Maestros productos usuarios clientes,P10,S15/S17/S18,test_admin_catalogo_roles_reporte; test_contacto_reservas_y_perfil,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+RF12,Autenticación y perfiles,P01-P10,S02b/S03a/S17,test_roles_propiedad_y_cabeceras_falsas; test_csrf_y_sesion_revocada,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+RF13,Orden despacho imprimible,P10,S14/S12,test_pago_firmado_duplicados_despacho_y_comprobante,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+FRONT-RESERVA/CONTACTO,Formularios heredados,P05/P06/P10,S06/S07,test_contacto_reservas_y_perfil,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+E2-M08,Agregación privada,P08,S11,test_graphql_agregacion_limites_y_campos,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml
+E2-SEG,Fronteras y secretos,P01-P10,todos,test_red_privada_y_acl_secretos; test_pago_alterado_y_firma_invalida,Aprobado en suite final de 16 pruebas; ver casos y duración en XML,resultados-pruebas.xml

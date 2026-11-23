@@ -1,0 +1,592 @@
+{
+  "S01": {
+    "metodo": "GET",
+    "ruta": "/api/products",
+    "entrada_json_o_query": {
+      "query": {
+        "limit": 30,
+        "offset": 0
+      }
+    },
+    "respuesta_ficticia_parcial": [
+      {
+        "id": 6,
+        "nombre": "Moussaka",
+        "precio": 9800,
+        "stock": 50,
+        "categoria": "Almuerzos",
+        "descripcion": "Descripción ficticia",
+        "imagen": "moussaka.jpg",
+        "disponible": true
+      }
+    ],
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S02a": {
+    "metodo": "POST",
+    "ruta": "/api/auth/register",
+    "entrada_json_o_query": {
+      "nombre": "Persona Ficticia",
+      "correo": "persona@example.test",
+      "clave": "solo-ejemplo-no-es-una-cuenta",
+      "run": "11111111-1",
+      "direccion": "Direccion ficticia 123",
+      "comuna": "Santiago",
+      "provincia": "Santiago",
+      "region": "Metropolitana",
+      "nacimiento": "1990-01-01",
+      "sexo": "No informar",
+      "telefono": "+56911111111"
+    },
+    "respuesta_ficticia_parcial": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "message": "Registro creado. Revisa tu correo."
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S02b": {
+    "metodo": "POST",
+    "ruta": "/api/auth/login",
+    "entrada_json_o_query": {
+      "correo": "persona@example.test",
+      "clave": "solo-ejemplo-no-es-una-cuenta"
+    },
+    "respuesta_ficticia_parcial": {
+      "user": {
+        "sub": "11111111-1111-4111-8111-111111111111",
+        "role": "client",
+        "verified": true
+      },
+      "expires_in": 1800
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S02c": {
+    "metodo": "POST",
+    "ruta": "/api/auth/verify",
+    "entrada_json_o_query": {
+      "token": "codigo-ficticio-entregado-por-buzon"
+    },
+    "respuesta_ficticia_parcial": {
+      "message": "Operación aceptada"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S03a": {
+    "metodo": "POST",
+    "ruta": "/api/auth/logout",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": {
+      "message": "Operación aceptada"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S03b": {
+    "metodo": "POST",
+    "ruta": "/api/auth/resend",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": {
+      "message": "Operación aceptada"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S05a": {
+    "metodo": "GET",
+    "ruta": "/api/me",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": {
+      "id": "cliente-ficticio",
+      "nombre": "Persona Ficticia",
+      "correo": "persona@example.test",
+      "run": "11111111-1",
+      "direccion": "Direccion ficticia 123",
+      "comuna": "Santiago",
+      "provincia": "Santiago",
+      "region": "Metropolitana",
+      "telefono": "+56911111111",
+      "nacimiento": "1990-01-01",
+      "sexo": "No informar"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S05b": {
+    "metodo": "PUT",
+    "ruta": "/api/me",
+    "entrada_json_o_query": {
+      "direccion": "Nueva direccion ficticia 234"
+    },
+    "respuesta_ficticia_parcial": {
+      "id": "cliente-ficticio",
+      "nombre": "Persona Ficticia",
+      "correo": "persona@example.test",
+      "run": "11111111-1",
+      "direccion": "Direccion ficticia 123",
+      "comuna": "Santiago",
+      "provincia": "Santiago",
+      "region": "Metropolitana",
+      "telefono": "+56911111111",
+      "nacimiento": "1990-01-01",
+      "sexo": "No informar"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S06a": {
+    "metodo": "POST",
+    "ruta": "/api/contact",
+    "entrada_json_o_query": {
+      "nombre": "Persona Ficticia",
+      "correo": "persona@example.test",
+      "mensaje": "Consulta de prueba"
+    },
+    "respuesta_ficticia_parcial": {
+      "id": "contacto-ficticio",
+      "message": "Mensaje recibido."
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S06b": {
+    "metodo": "GET",
+    "ruta": "/api/contact",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": [
+      {
+        "id": "contacto-ficticio",
+        "data": {
+          "nombre": "Persona Ficticia",
+          "correo": "persona@example.test",
+          "mensaje": "Consulta de prueba"
+        },
+        "created": "2026-11-02 10:00:00"
+      }
+    ],
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S07a": {
+    "metodo": "POST",
+    "ruta": "/api/reservations",
+    "entrada_json_o_query": {
+      "nombre": "Persona Ficticia",
+      "correo": "persona@example.test",
+      "fecha": "2026-11-10",
+      "personas": 2,
+      "comentarios": ""
+    },
+    "respuesta_ficticia_parcial": {
+      "id": "reserva-ficticia",
+      "message": "Reserva recibida; pendiente de confirmación."
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S07b": {
+    "metodo": "GET",
+    "ruta": "/api/reservations",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": [
+      {
+        "id": "reserva-ficticia",
+        "client_id": "cliente-ficticio",
+        "fecha": "2026-11-10",
+        "personas": 2,
+        "status": "solicitada",
+        "data": {
+          "nombre": "Persona Ficticia",
+          "correo": "persona@example.test",
+          "comentarios": ""
+        }
+      }
+    ],
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S07c": {
+    "metodo": "PUT",
+    "ruta": "/api/reservations/{id}",
+    "entrada_json_o_query": {
+      "status": "confirmada"
+    },
+    "respuesta_ficticia_parcial": {
+      "message": "Operación aceptada"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S08": {
+    "metodo": "POST",
+    "ruta": "/api/orders",
+    "entrada_json_o_query": {
+      "items": [
+        {
+          "id": 6,
+          "cantidad": 1
+        }
+      ],
+      "direccion": "Dirección de prueba 123, Santiago"
+    },
+    "respuesta_ficticia_parcial": {
+      "id": "pedido-ficticio",
+      "status": "pendiente_pago",
+      "total": 9800,
+      "items": [
+        {
+          "id": 6,
+          "nombre": "Moussaka",
+          "cantidad": 1,
+          "precio": 9800,
+          "descuento": 0,
+          "subtotal": 9800
+        }
+      ]
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S09a": {
+    "metodo": "GET",
+    "ruta": "/api/orders",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": [
+      {
+        "id": "pedido-ficticio",
+        "client_id": "cliente-ficticio",
+        "status": "pendiente_pago",
+        "total": 9800,
+        "items": [
+          {
+            "id": 6,
+            "nombre": "Moussaka",
+            "precio": 9800,
+            "cantidad": 1,
+            "descuento": 0,
+            "subtotal": 9800
+          }
+        ],
+        "address": "Direccion ficticia 123",
+        "created": 1793642400,
+        "reason": "",
+        "receipt_sent": 0,
+        "request_key": "intento-ficticio-001"
+      }
+    ],
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S09b": {
+    "metodo": "GET",
+    "ruta": "/api/orders/{id}",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": {
+      "id": "pedido-ficticio",
+      "client_id": "cliente-ficticio",
+      "status": "pendiente_pago",
+      "total": 9800,
+      "items": [
+        {
+          "id": 6,
+          "nombre": "Moussaka",
+          "precio": 9800,
+          "cantidad": 1,
+          "descuento": 0,
+          "subtotal": 9800
+        }
+      ],
+      "address": "Direccion ficticia 123",
+      "created": 1793642400,
+      "reason": "",
+      "receipt_sent": 0,
+      "request_key": "intento-ficticio-001"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S09c": {
+    "metodo": "POST",
+    "ruta": "/api/orders/{id}/cancel",
+    "entrada_json_o_query": {
+      "motivo": "Cambio de planes del cliente"
+    },
+    "respuesta_ficticia_parcial": {
+      "id": "pedido-ficticio",
+      "status": "cancelado"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S10": {
+    "metodo": "POST",
+    "ruta": "/api/payments",
+    "entrada_json_o_query": {
+      "order_id": "pedido-ficticio"
+    },
+    "respuesta_ficticia_parcial": {
+      "id": "pago-ficticio",
+      "order_id": "pedido-ficticio",
+      "total": 9800,
+      "status": "pendiente",
+      "client_id": "cliente-ficticio"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S11": {
+    "metodo": "POST",
+    "ruta": "/api/graphql",
+    "entrada_json_o_query": {
+      "query": "query($id:ID!){resumenPedido(id:$id){id total estado lineas{nombre descripcionActual}}}",
+      "variables": {
+        "id": "pedido-ficticio"
+      }
+    },
+    "respuesta_ficticia_parcial": {
+      "data": {
+        "resumenPedido": {
+          "id": "pedido-ficticio",
+          "total": 9800,
+          "estado": "pagado",
+          "lineas": [
+            {
+              "nombre": "Moussaka",
+              "descripcionActual": "Descripción pública"
+            }
+          ]
+        }
+      }
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S12": {
+    "metodo": "PUT",
+    "ruta": "/api/orders/{id}/status",
+    "entrada_json_o_query": {
+      "status": "preparando"
+    },
+    "respuesta_ficticia_parcial": {
+      "id": "pedido-ficticio",
+      "status": "preparando"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S13a": {
+    "metodo": "GET",
+    "ruta": "/api/orders/{id}/receipt",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": {
+      "numero": "DEMO-pedido-ficticio",
+      "tipo": "Comprobante académico no tributario",
+      "total": 9800,
+      "items": [
+        {
+          "id": 6,
+          "nombre": "Moussaka",
+          "precio": 9800,
+          "cantidad": 1,
+          "descuento": 0,
+          "subtotal": 9800
+        }
+      ],
+      "moneda": "CLP"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S13b": {
+    "metodo": "POST",
+    "ruta": "/api/orders/{id}/receipt-email",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": {
+      "message": "Operación aceptada"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S14": {
+    "metodo": "GET",
+    "ruta": "/api/orders/{id}/dispatch",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": {
+      "orden": "pedido-ficticio",
+      "direccion": "Direccion ficticia 123",
+      "items": [
+        {
+          "id": 6,
+          "nombre": "Moussaka",
+          "precio": 9800,
+          "cantidad": 1,
+          "descuento": 0,
+          "subtotal": 9800
+        }
+      ],
+      "created": 1793642400
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S15a": {
+    "metodo": "GET",
+    "ruta": "/api/admin/products",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": [
+      {
+        "id": 6,
+        "nombre": "Moussaka",
+        "precio": 9800,
+        "stock": 50,
+        "categoria": "Almuerzos",
+        "descripcion": "Descripción ficticia",
+        "imagen": "moussaka.jpg",
+        "disponible": true
+      }
+    ],
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S15b": {
+    "metodo": "POST",
+    "ruta": "/api/admin/products",
+    "entrada_json_o_query": {
+      "nombre": "Falafel con hummus",
+      "categoria": "Almuerzos",
+      "descripcion": "Plato ficticio",
+      "precio": 7900,
+      "imagen": "falafel.jpg",
+      "stock": 50,
+      "disponible": true
+    },
+    "respuesta_ficticia_parcial": {
+      "id": 8
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S15c": {
+    "metodo": "PUT",
+    "ruta": "/api/admin/products/{id}",
+    "entrada_json_o_query": {
+      "nombre": "Falafel con hummus",
+      "categoria": "Almuerzos",
+      "descripcion": "Plato ficticio",
+      "precio": 7900,
+      "imagen": "falafel.jpg",
+      "stock": 50,
+      "disponible": true
+    },
+    "respuesta_ficticia_parcial": {
+      "id": 8
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S15d": {
+    "metodo": "DELETE",
+    "ruta": "/api/admin/products/{id}",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": {
+      "message": "Operación aceptada"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S16": {
+    "metodo": "GET",
+    "ruta": "/api/reports/sales",
+    "entrada_json_o_query": {
+      "query": {
+        "desde": 1793588400,
+        "hasta": 1794279599
+      }
+    },
+    "respuesta_ficticia_parcial": {
+      "ventas": 1,
+      "total": 9800,
+      "moneda": "CLP",
+      "desde": 1793588400,
+      "hasta": 1794279599
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S17a": {
+    "metodo": "GET",
+    "ruta": "/api/users",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": [
+      {
+        "id": "cuenta-ficticia",
+        "email": "persona@example.test",
+        "role": "client",
+        "verified": 1,
+        "active": 1
+      }
+    ],
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S17b": {
+    "metodo": "PUT",
+    "ruta": "/api/users/{id}",
+    "entrada_json_o_query": {
+      "role": "dispatch",
+      "active": true
+    },
+    "respuesta_ficticia_parcial": {
+      "message": "Operación aceptada"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S18a": {
+    "metodo": "GET",
+    "ruta": "/api/profiles",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": [
+      {
+        "id": "cliente-ficticio",
+        "nombre": "Persona Ficticia",
+        "correo": "persona@example.test",
+        "run": "11111111-1",
+        "direccion": "Direccion ficticia 123",
+        "comuna": "Santiago",
+        "provincia": "Santiago",
+        "region": "Metropolitana",
+        "telefono": "+56911111111",
+        "nacimiento": "1990-01-01",
+        "sexo": "No informar"
+      }
+    ],
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S18b": {
+    "metodo": "PUT",
+    "ruta": "/api/profiles/{id}",
+    "entrada_json_o_query": {
+      "direccion": "Nueva direccion ficticia 234"
+    },
+    "respuesta_ficticia_parcial": {
+      "id": "cliente-ficticio",
+      "nombre": "Persona Ficticia",
+      "correo": "persona@example.test",
+      "run": "11111111-1",
+      "direccion": "Direccion ficticia 123",
+      "comuna": "Santiago",
+      "provincia": "Santiago",
+      "region": "Metropolitana",
+      "telefono": "+56911111111",
+      "nacimiento": "1990-01-01",
+      "sexo": "No informar"
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S19": {
+    "metodo": "POST",
+    "ruta": "/api/auth/register",
+    "entrada_json_o_query": {
+      "nombre": "Persona Ficticia",
+      "correo": "persona@example.test",
+      "clave": "solo-ejemplo-no-es-una-cuenta",
+      "run": "11111111-1",
+      "direccion": "Direccion ficticia 123",
+      "comuna": "Santiago",
+      "provincia": "Santiago",
+      "region": "Metropolitana",
+      "nacimiento": "1990-01-01",
+      "sexo": "No informar",
+      "telefono": "+56911111111"
+    },
+    "respuesta_ficticia_parcial": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "message": "Registro creado. Revisa tu correo."
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  },
+  "S20": {
+    "metodo": "POST",
+    "ruta": "/api/admin/reconcile",
+    "entrada_json_o_query": {},
+    "respuesta_ficticia_parcial": {
+      "recuperados": 1
+    },
+    "nota": "Ejemplos ilustrativos; tipos obligatorios en OpenAPI. Sin valores de secretos reales."
+  }
+}

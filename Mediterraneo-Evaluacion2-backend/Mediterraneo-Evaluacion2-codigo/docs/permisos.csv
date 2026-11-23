@@ -1,0 +1,208 @@
+﻿rol,ID,ruta,verbo,decision,alcance_condicion,verificacion
+anonimo,S01,/api/products,GET,permitido,Solo catálogo activo; stock y precios oficiales,inventory + auth; gateway comprueba sesión/CSRF
+client,S01,/api/products,GET,permitido,Solo catálogo activo; stock y precios oficiales,inventory + auth; gateway comprueba sesión/CSRF
+admin,S01,/api/products,GET,permitido,Solo catálogo activo; stock y precios oficiales,inventory + auth; gateway comprueba sesión/CSRF
+owner,S01,/api/products,GET,permitido,Solo catálogo activo; stock y precios oficiales,inventory + auth; gateway comprueba sesión/CSRF
+cashier,S01,/api/products,GET,permitido,Solo catálogo activo; stock y precios oficiales,inventory + auth; gateway comprueba sesión/CSRF
+dispatch,S01,/api/products,GET,permitido,Solo catálogo activo; stock y precios oficiales,inventory + auth; gateway comprueba sesión/CSRF
+anonimo,S02a,/api/auth/register,POST,permitido,Alta de cuenta client; correo único y RUN válido,auth + auth; gateway comprueba sesión/CSRF
+client,S02a,/api/auth/register,POST,permitido,Alta de cuenta client; correo único y RUN válido,auth + auth; gateway comprueba sesión/CSRF
+admin,S02a,/api/auth/register,POST,permitido,Alta de cuenta client; correo único y RUN válido,auth + auth; gateway comprueba sesión/CSRF
+owner,S02a,/api/auth/register,POST,permitido,Alta de cuenta client; correo único y RUN válido,auth + auth; gateway comprueba sesión/CSRF
+cashier,S02a,/api/auth/register,POST,permitido,Alta de cuenta client; correo único y RUN válido,auth + auth; gateway comprueba sesión/CSRF
+dispatch,S02a,/api/auth/register,POST,permitido,Alta de cuenta client; correo único y RUN válido,auth + auth; gateway comprueba sesión/CSRF
+anonimo,S02b,/api/auth/login,POST,permitido,Argon2; sesión JWT revocable 30 minutos,auth + auth; gateway comprueba sesión/CSRF
+client,S02b,/api/auth/login,POST,permitido,Argon2; sesión JWT revocable 30 minutos,auth + auth; gateway comprueba sesión/CSRF
+admin,S02b,/api/auth/login,POST,permitido,Argon2; sesión JWT revocable 30 minutos,auth + auth; gateway comprueba sesión/CSRF
+owner,S02b,/api/auth/login,POST,permitido,Argon2; sesión JWT revocable 30 minutos,auth + auth; gateway comprueba sesión/CSRF
+cashier,S02b,/api/auth/login,POST,permitido,Argon2; sesión JWT revocable 30 minutos,auth + auth; gateway comprueba sesión/CSRF
+dispatch,S02b,/api/auth/login,POST,permitido,Argon2; sesión JWT revocable 30 minutos,auth + auth; gateway comprueba sesión/CSRF
+anonimo,S02c,/api/auth/verify,POST,permitido,Código de un uso y 30 minutos; recibido en buzón sandbox,auth + auth; gateway comprueba sesión/CSRF
+client,S02c,/api/auth/verify,POST,permitido,Código de un uso y 30 minutos; recibido en buzón sandbox,auth + auth; gateway comprueba sesión/CSRF
+admin,S02c,/api/auth/verify,POST,permitido,Código de un uso y 30 minutos; recibido en buzón sandbox,auth + auth; gateway comprueba sesión/CSRF
+owner,S02c,/api/auth/verify,POST,permitido,Código de un uso y 30 minutos; recibido en buzón sandbox,auth + auth; gateway comprueba sesión/CSRF
+cashier,S02c,/api/auth/verify,POST,permitido,Código de un uso y 30 minutos; recibido en buzón sandbox,auth + auth; gateway comprueba sesión/CSRF
+dispatch,S02c,/api/auth/verify,POST,permitido,Código de un uso y 30 minutos; recibido en buzón sandbox,auth + auth; gateway comprueba sesión/CSRF
+anonimo,S03a,/api/auth/logout,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+client,S03a,/api/auth/logout,POST,permitido,Revoca jti; acepta cuenta no verificada,auth + auth; gateway comprueba sesión/CSRF
+admin,S03a,/api/auth/logout,POST,permitido,Revoca jti; acepta cuenta no verificada,auth + auth; gateway comprueba sesión/CSRF
+owner,S03a,/api/auth/logout,POST,permitido,Revoca jti; acepta cuenta no verificada,auth + auth; gateway comprueba sesión/CSRF
+cashier,S03a,/api/auth/logout,POST,permitido,Revoca jti; acepta cuenta no verificada,auth + auth; gateway comprueba sesión/CSRF
+dispatch,S03a,/api/auth/logout,POST,permitido,Revoca jti; acepta cuenta no verificada,auth + auth; gateway comprueba sesión/CSRF
+anonimo,S03b,/api/auth/resend,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+client,S03b,/api/auth/resend,POST,permitido,Reenvía solo al correo de la cuenta; permite no verificada,auth + auth; gateway comprueba sesión/CSRF
+admin,S03b,/api/auth/resend,POST,permitido,Reenvía solo al correo de la cuenta; permite no verificada,auth + auth; gateway comprueba sesión/CSRF
+owner,S03b,/api/auth/resend,POST,permitido,Reenvía solo al correo de la cuenta; permite no verificada,auth + auth; gateway comprueba sesión/CSRF
+cashier,S03b,/api/auth/resend,POST,permitido,Reenvía solo al correo de la cuenta; permite no verificada,auth + auth; gateway comprueba sesión/CSRF
+dispatch,S03b,/api/auth/resend,POST,permitido,Reenvía solo al correo de la cuenta; permite no verificada,auth + auth; gateway comprueba sesión/CSRF
+anonimo,S05a,/api/me,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+client,S05a,/api/me,GET,permitido,Datos restringidos; no permite seleccionar ID ajeno,clients + auth; gateway comprueba sesión/CSRF
+admin,S05a,/api/me,GET,permitido,Datos restringidos; no permite seleccionar ID ajeno,clients + auth; gateway comprueba sesión/CSRF
+owner,S05a,/api/me,GET,permitido,Datos restringidos; no permite seleccionar ID ajeno,clients + auth; gateway comprueba sesión/CSRF
+cashier,S05a,/api/me,GET,permitido,Datos restringidos; no permite seleccionar ID ajeno,clients + auth; gateway comprueba sesión/CSRF
+dispatch,S05a,/api/me,GET,permitido,Datos restringidos; no permite seleccionar ID ajeno,clients + auth; gateway comprueba sesión/CSRF
+anonimo,S05b,/api/me,PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+client,S05b,/api/me,PUT,permitido,"Actualización parcial documentada; no admite rol, clave o correo",clients + auth; gateway comprueba sesión/CSRF
+admin,S05b,/api/me,PUT,permitido,"Actualización parcial documentada; no admite rol, clave o correo",clients + auth; gateway comprueba sesión/CSRF
+owner,S05b,/api/me,PUT,permitido,"Actualización parcial documentada; no admite rol, clave o correo",clients + auth; gateway comprueba sesión/CSRF
+cashier,S05b,/api/me,PUT,permitido,"Actualización parcial documentada; no admite rol, clave o correo",clients + auth; gateway comprueba sesión/CSRF
+dispatch,S05b,/api/me,PUT,permitido,"Actualización parcial documentada; no admite rol, clave o correo",clients + auth; gateway comprueba sesión/CSRF
+anonimo,S06a,/api/contact,POST,permitido,Valida correo y longitud; guarda en base,clients + auth; gateway comprueba sesión/CSRF
+client,S06a,/api/contact,POST,permitido,Valida correo y longitud; guarda en base,clients + auth; gateway comprueba sesión/CSRF
+admin,S06a,/api/contact,POST,permitido,Valida correo y longitud; guarda en base,clients + auth; gateway comprueba sesión/CSRF
+owner,S06a,/api/contact,POST,permitido,Valida correo y longitud; guarda en base,clients + auth; gateway comprueba sesión/CSRF
+cashier,S06a,/api/contact,POST,permitido,Valida correo y longitud; guarda en base,clients + auth; gateway comprueba sesión/CSRF
+dispatch,S06a,/api/contact,POST,permitido,Valida correo y longitud; guarda en base,clients + auth; gateway comprueba sesión/CSRF
+anonimo,S06b,/api/contact,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+client,S06b,/api/contact,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+admin,S06b,/api/contact,GET,permitido,No devuelve mensajes al público,clients + auth; gateway comprueba sesión/CSRF
+owner,S06b,/api/contact,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+cashier,S06b,/api/contact,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+dispatch,S06b,/api/contact,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+anonimo,S07a,/api/reservations,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+client,S07a,/api/reservations,POST,permitido,Correo verificado; 2..12; cupo 24; no fecha pasada ni lunes,clients + auth; gateway comprueba sesión/CSRF
+admin,S07a,/api/reservations,POST,permitido,Correo verificado; 2..12; cupo 24; no fecha pasada ni lunes,clients + auth; gateway comprueba sesión/CSRF
+owner,S07a,/api/reservations,POST,permitido,Correo verificado; 2..12; cupo 24; no fecha pasada ni lunes,clients + auth; gateway comprueba sesión/CSRF
+cashier,S07a,/api/reservations,POST,permitido,Correo verificado; 2..12; cupo 24; no fecha pasada ni lunes,clients + auth; gateway comprueba sesión/CSRF
+dispatch,S07a,/api/reservations,POST,permitido,Correo verificado; 2..12; cupo 24; no fecha pasada ni lunes,clients + auth; gateway comprueba sesión/CSRF
+anonimo,S07b,/api/reservations,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+client,S07b,/api/reservations,GET,permitido,Cliente solo propias; admin todas,clients + auth; gateway comprueba sesión/CSRF
+admin,S07b,/api/reservations,GET,permitido,Cliente solo propias; admin todas,clients + auth; gateway comprueba sesión/CSRF
+owner,S07b,/api/reservations,GET,permitido,Cliente solo propias; admin todas,clients + auth; gateway comprueba sesión/CSRF
+cashier,S07b,/api/reservations,GET,permitido,Cliente solo propias; admin todas,clients + auth; gateway comprueba sesión/CSRF
+dispatch,S07b,/api/reservations,GET,permitido,Cliente solo propias; admin todas,clients + auth; gateway comprueba sesión/CSRF
+anonimo,S07c,/api/reservations/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+client,S07c,/api/reservations/{id},PUT,permitido,Cliente propio solo cancela; admin confirma o cancela,clients + auth; gateway comprueba sesión/CSRF
+admin,S07c,/api/reservations/{id},PUT,permitido,Cliente propio solo cancela; admin confirma o cancela,clients + auth; gateway comprueba sesión/CSRF
+owner,S07c,/api/reservations/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+cashier,S07c,/api/reservations/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+dispatch,S07c,/api/reservations/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+anonimo,S08,/api/orders,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+client,S08,/api/orders,POST,permitido,Cuenta verificada; stock atómico; radio 3km; sin precios del cliente,orders + auth; gateway comprueba sesión/CSRF
+admin,S08,/api/orders,POST,permitido,Cuenta verificada; stock atómico; radio 3km; sin precios del cliente,orders + auth; gateway comprueba sesión/CSRF
+owner,S08,/api/orders,POST,permitido,Cuenta verificada; stock atómico; radio 3km; sin precios del cliente,orders + auth; gateway comprueba sesión/CSRF
+cashier,S08,/api/orders,POST,permitido,Cuenta verificada; stock atómico; radio 3km; sin precios del cliente,orders + auth; gateway comprueba sesión/CSRF
+dispatch,S08,/api/orders,POST,permitido,Cuenta verificada; stock atómico; radio 3km; sin precios del cliente,orders + auth; gateway comprueba sesión/CSRF
+anonimo,S09a,/api/orders,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+client,S09a,/api/orders,GET,permitido,client propios; owner sin dirección ni ID de cliente,orders + auth; gateway comprueba sesión/CSRF
+admin,S09a,/api/orders,GET,permitido,client propios; owner sin dirección ni ID de cliente,orders + auth; gateway comprueba sesión/CSRF
+owner,S09a,/api/orders,GET,permitido,client propios; owner sin dirección ni ID de cliente,orders + auth; gateway comprueba sesión/CSRF
+cashier,S09a,/api/orders,GET,permitido,client propios; owner sin dirección ni ID de cliente,orders + auth; gateway comprueba sesión/CSRF
+dispatch,S09a,/api/orders,GET,permitido,client propios; owner sin dirección ni ID de cliente,orders + auth; gateway comprueba sesión/CSRF
+anonimo,S09b,/api/orders/{id},GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+client,S09b,/api/orders/{id},GET,permitido,Propiedad o rol operativo; owner sin datos de dirección,orders + auth; gateway comprueba sesión/CSRF
+admin,S09b,/api/orders/{id},GET,permitido,Propiedad o rol operativo; owner sin datos de dirección,orders + auth; gateway comprueba sesión/CSRF
+owner,S09b,/api/orders/{id},GET,permitido,Propiedad o rol operativo; owner sin datos de dirección,orders + auth; gateway comprueba sesión/CSRF
+cashier,S09b,/api/orders/{id},GET,permitido,Propiedad o rol operativo; owner sin datos de dirección,orders + auth; gateway comprueba sesión/CSRF
+dispatch,S09b,/api/orders/{id},GET,permitido,Propiedad o rol operativo; owner sin datos de dirección,orders + auth; gateway comprueba sesión/CSRF
+anonimo,S09c,/api/orders/{id}/cancel,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+client,S09c,/api/orders/{id}/cancel,POST,permitido,Antes de preparación; conserva motivo e historial; devuelve stock,orders + auth; gateway comprueba sesión/CSRF
+admin,S09c,/api/orders/{id}/cancel,POST,permitido,Antes de preparación; conserva motivo e historial; devuelve stock,orders + auth; gateway comprueba sesión/CSRF
+owner,S09c,/api/orders/{id}/cancel,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+cashier,S09c,/api/orders/{id}/cancel,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+dispatch,S09c,/api/orders/{id}/cancel,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+anonimo,S10,/api/payments,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,payments + auth; gateway comprueba sesión/CSRF
+client,S10,/api/payments,POST,permitido,Solo pedido propio pendiente; importe desde orders; proveedor confirma pago.,payments + auth; gateway comprueba sesión/CSRF
+admin,S10,/api/payments,POST,permitido,Solo pedido propio pendiente; importe desde orders; proveedor confirma pago.,payments + auth; gateway comprueba sesión/CSRF
+owner,S10,/api/payments,POST,permitido,Solo pedido propio pendiente; importe desde orders; proveedor confirma pago.,payments + auth; gateway comprueba sesión/CSRF
+cashier,S10,/api/payments,POST,permitido,Solo pedido propio pendiente; importe desde orders; proveedor confirma pago.,payments + auth; gateway comprueba sesión/CSRF
+dispatch,S10,/api/payments,POST,permitido,Solo pedido propio pendiente; importe desde orders; proveedor confirma pago.,payments + auth; gateway comprueba sesión/CSRF
+anonimo,S11,/api/graphql,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,graphql + auth; gateway comprueba sesión/CSRF
+client,S11,/api/graphql,POST,permitido,resumenPedido / misPedidos; recurso y campo; límites de consumo,graphql + auth; gateway comprueba sesión/CSRF
+admin,S11,/api/graphql,POST,permitido,resumenPedido / misPedidos; recurso y campo; límites de consumo,graphql + auth; gateway comprueba sesión/CSRF
+owner,S11,/api/graphql,POST,permitido,resumenPedido / misPedidos; recurso y campo; límites de consumo,graphql + auth; gateway comprueba sesión/CSRF
+cashier,S11,/api/graphql,POST,permitido,resumenPedido / misPedidos; recurso y campo; límites de consumo,graphql + auth; gateway comprueba sesión/CSRF
+dispatch,S11,/api/graphql,POST,permitido,resumenPedido / misPedidos; recurso y campo; límites de consumo,graphql + auth; gateway comprueba sesión/CSRF
+anonimo,S12,/api/orders/{id}/status,PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+client,S12,/api/orders/{id}/status,PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+admin,S12,/api/orders/{id}/status,PUT,permitido,Solo siguiente estado permitido; requiere pago,orders + auth; gateway comprueba sesión/CSRF
+owner,S12,/api/orders/{id}/status,PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+cashier,S12,/api/orders/{id}/status,PUT,permitido,Solo siguiente estado permitido; requiere pago,orders + auth; gateway comprueba sesión/CSRF
+dispatch,S12,/api/orders/{id}/status,PUT,permitido,Solo siguiente estado permitido; requiere pago,orders + auth; gateway comprueba sesión/CSRF
+anonimo,S13a,/api/orders/{id}/receipt,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+client,S13a,/api/orders/{id}/receipt,GET,permitido,Solo propio o personal; requiere pago; sin valor tributario,orders + auth; gateway comprueba sesión/CSRF
+admin,S13a,/api/orders/{id}/receipt,GET,permitido,Solo propio o personal; requiere pago; sin valor tributario,orders + auth; gateway comprueba sesión/CSRF
+owner,S13a,/api/orders/{id}/receipt,GET,permitido,Solo propio o personal; requiere pago; sin valor tributario,orders + auth; gateway comprueba sesión/CSRF
+cashier,S13a,/api/orders/{id}/receipt,GET,permitido,Solo propio o personal; requiere pago; sin valor tributario,orders + auth; gateway comprueba sesión/CSRF
+dispatch,S13a,/api/orders/{id}/receipt,GET,permitido,Solo propio o personal; requiere pago; sin valor tributario,orders + auth; gateway comprueba sesión/CSRF
+anonimo,S13b,/api/orders/{id}/receipt-email,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+client,S13b,/api/orders/{id}/receipt-email,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+admin,S13b,/api/orders/{id}/receipt-email,POST,permitido,Correo sandbox mediante provider; duplicados sin doble envío,orders + auth; gateway comprueba sesión/CSRF
+owner,S13b,/api/orders/{id}/receipt-email,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+cashier,S13b,/api/orders/{id}/receipt-email,POST,permitido,Correo sandbox mediante provider; duplicados sin doble envío,orders + auth; gateway comprueba sesión/CSRF
+dispatch,S13b,/api/orders/{id}/receipt-email,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+anonimo,S14,/api/orders/{id}/dispatch,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+client,S14,/api/orders/{id}/dispatch,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+admin,S14,/api/orders/{id}/dispatch,GET,permitido,Solo después de pago; frontend imprime,orders + auth; gateway comprueba sesión/CSRF
+owner,S14,/api/orders/{id}/dispatch,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+cashier,S14,/api/orders/{id}/dispatch,GET,permitido,Solo después de pago; frontend imprime,orders + auth; gateway comprueba sesión/CSRF
+dispatch,S14,/api/orders/{id}/dispatch,GET,permitido,Solo después de pago; frontend imprime,orders + auth; gateway comprueba sesión/CSRF
+anonimo,S15a,/api/admin/products,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+client,S15a,/api/admin/products,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+admin,S15a,/api/admin/products,GET,permitido,Permiso administrativo de catálogo,inventory + auth; gateway comprueba sesión/CSRF
+owner,S15a,/api/admin/products,GET,permitido,Permiso administrativo de catálogo,inventory + auth; gateway comprueba sesión/CSRF
+cashier,S15a,/api/admin/products,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+dispatch,S15a,/api/admin/products,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+anonimo,S15b,/api/admin/products,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+client,S15b,/api/admin/products,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+admin,S15b,/api/admin/products,POST,permitido,"Precio positivo, stock no negativo, categoría e imagen permitidas",inventory + auth; gateway comprueba sesión/CSRF
+owner,S15b,/api/admin/products,POST,permitido,"Precio positivo, stock no negativo, categoría e imagen permitidas",inventory + auth; gateway comprueba sesión/CSRF
+cashier,S15b,/api/admin/products,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+dispatch,S15b,/api/admin/products,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+anonimo,S15c,/api/admin/products/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+client,S15c,/api/admin/products/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+admin,S15c,/api/admin/products/{id},PUT,permitido,No altera líneas históricas; stock representa unidades libres,inventory + auth; gateway comprueba sesión/CSRF
+owner,S15c,/api/admin/products/{id},PUT,permitido,No altera líneas históricas; stock representa unidades libres,inventory + auth; gateway comprueba sesión/CSRF
+cashier,S15c,/api/admin/products/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+dispatch,S15c,/api/admin/products/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+anonimo,S15d,/api/admin/products/{id},DELETE,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+client,S15d,/api/admin/products/{id},DELETE,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+admin,S15d,/api/admin/products/{id},DELETE,permitido,Baja lógica; no elimina historial,inventory + auth; gateway comprueba sesión/CSRF
+owner,S15d,/api/admin/products/{id},DELETE,permitido,Baja lógica; no elimina historial,inventory + auth; gateway comprueba sesión/CSRF
+cashier,S15d,/api/admin/products/{id},DELETE,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+dispatch,S15d,/api/admin/products/{id},DELETE,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,inventory + auth; gateway comprueba sesión/CSRF
+anonimo,S16,/api/reports/sales,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+client,S16,/api/reports/sales,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+admin,S16,/api/reports/sales,GET,permitido,Ventas pagadas no canceladas; período válido; sin datos personales,orders + auth; gateway comprueba sesión/CSRF
+owner,S16,/api/reports/sales,GET,permitido,Ventas pagadas no canceladas; período válido; sin datos personales,orders + auth; gateway comprueba sesión/CSRF
+cashier,S16,/api/reports/sales,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+dispatch,S16,/api/reports/sales,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+anonimo,S17a,/api/users,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+client,S17a,/api/users,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+admin,S17a,/api/users,GET,permitido,"No expone hash, contraseña o sesiones",auth + auth; gateway comprueba sesión/CSRF
+owner,S17a,/api/users,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+cashier,S17a,/api/users,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+dispatch,S17a,/api/users,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+anonimo,S17b,/api/users/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+client,S17b,/api/users/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+admin,S17b,/api/users/{id},PUT,permitido,No cambia su propia cuenta; revoca sesiones del afectado,auth + auth; gateway comprueba sesión/CSRF
+owner,S17b,/api/users/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+cashier,S17b,/api/users/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+dispatch,S17b,/api/users/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+anonimo,S18a,/api/profiles,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+client,S18a,/api/profiles,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+admin,S18a,/api/profiles,GET,permitido,"Datos restringidos, nunca listado público",clients + auth; gateway comprueba sesión/CSRF
+owner,S18a,/api/profiles,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+cashier,S18a,/api/profiles,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+dispatch,S18a,/api/profiles,GET,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+anonimo,S18b,/api/profiles/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+client,S18b,/api/profiles/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+admin,S18b,/api/profiles/{id},PUT,permitido,"No altera email verificado, credenciales o identificador",clients + auth; gateway comprueba sesión/CSRF
+owner,S18b,/api/profiles/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+cashier,S18b,/api/profiles/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+dispatch,S18b,/api/profiles/{id},PUT,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,clients + auth; gateway comprueba sesión/CSRF
+anonimo,S19,/api/auth/register,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+client,S19,/api/auth/register,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+admin,S19,/api/auth/register,POST,permitido,Reutiliza registro; no omite verificación por alta administrativa,auth + auth; gateway comprueba sesión/CSRF
+owner,S19,/api/auth/register,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+cashier,S19,/api/auth/register,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+dispatch,S19,/api/auth/register,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,auth + auth; gateway comprueba sesión/CSRF
+anonimo,S20,/api/admin/reconcile,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+client,S20,/api/admin/reconcile,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+admin,S20,/api/admin/reconcile,POST,permitido,Compensa cancelando y expira impagos de más de 15 minutos,orders + auth; gateway comprueba sesión/CSRF
+owner,S20,/api/admin/reconcile,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+cashier,S20,/api/admin/reconcile,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+dispatch,S20,/api/admin/reconcile,POST,denegado,Sin permiso; 401 sin sesión o 403 con rol insuficiente,orders + auth; gateway comprueba sesión/CSRF
+todos,N/A,/api/orders/{id},DELETE,no aplicable,"No hay borrado físico; anulación, desactivación o actualización según recurso",gateway devuelve 404
+todos,N/A,/api/users/{id},DELETE,no aplicable,"No hay borrado físico; anulación, desactivación o actualización según recurso",gateway devuelve 404
+todos,N/A,/api/profiles/{id},DELETE,no aplicable,"No hay borrado físico; anulación, desactivación o actualización según recurso",gateway devuelve 404

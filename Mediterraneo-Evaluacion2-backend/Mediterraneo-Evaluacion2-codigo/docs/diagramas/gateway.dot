@@ -1,0 +1,23 @@
+digraph G { graph [rankdir=TB, bgcolor="white", pad="0.35", nodesep="0.5", ranksep="0.8", label="API Gateway y políticas de seguridad", labelloc=t, fontname="Arial", fontsize=20]; node [shape=plain,fontname="Arial",fontsize=11]; edge [fontname="Arial",fontsize=10,color="#6B4B45",arrowsize=0.7];
+gateway [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" COLOR="#9A3B3B"><TR><TD BGCOLOR="#F6EEDF"><B>«service» ApiGateway</B></TD></TR><TR><TD ALIGN="LEFT">ROUTES: RouteDefinition[]</TD></TR><TR><TD ALIGN="LEFT">proxy(request); controls(request)</TD></TR></TABLE>>];
+route [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" COLOR="#9A3B3B"><TR><TD BGCOLOR="#F6EEDF"><B>RouteDefinition</B></TD></TR><TR><TD ALIGN="LEFT">verbo; patron; destino</TD></TR><TR><TD ALIGN="LEFT">ruta_interna; requiere_sesion</TD></TR></TABLE>>];
+authentication [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" COLOR="#9A3B3B"><TR><TD BGCOLOR="#F6EEDF"><B>AuthenticationPolicy</B></TD></TR><TR><TD ALIGN="LEFT">cookie HttpOnly; JWT RS256</TD></TR><TR><TD ALIGN="LEFT">user(): firma y sesion activa</TD></TR></TABLE>>];
+authorization [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" COLOR="#9A3B3B"><TR><TD BGCOLOR="#F6EEDF"><B>AuthorizationPolicy</B></TD></TR><TR><TD ALIGN="LEFT">rol; alcance; propietario</TD></TR><TR><TD ALIGN="LEFT">owner(); peer(); transiciones</TD></TR></TABLE>>];
+target [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" COLOR="#9A3B3B"><TR><TD BGCOLOR="#F6EEDF"><B>ServiceTarget</B></TD></TR><TR><TD ALIGN="LEFT">nombre; host_loopback; puerto</TD></TR><TR><TD ALIGN="LEFT">call(): TLS; timeout 8 s</TD></TR></TABLE>>];
+secret [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" COLOR="#9A3B3B"><TR><TD BGCOLOR="#F6EEDF"><B>SecretProvider</B></TD></TR><TR><TD ALIGN="LEFT">referencia; identidad bootstrap</TD></TR><TR><TD ALIGN="LEFT">secret(); manager(): ACL</TD></TR></TABLE>>];
+graphql [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" COLOR="#9A3B3B"><TR><TD BGCOLOR="#F6EEDF"><B>«service» GraphQLGateway</B></TD></TR><TR><TD ALIGN="LEFT">endpoint(); limits()</TD></TR><TR><TD ALIGN="LEFT">resumen(); mine(); aggregate()</TD></TR></TABLE>>];
+schema [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" COLOR="#9A3B3B"><TR><TD BGCOLOR="#F6EEDF"><B>Schema</B></TD></TR><TR><TD ALIGN="LEFT">Query; ResumenPedido; LineaPedido</TD></TR><TR><TD ALIGN="LEFT">limite de profundidad y campos</TD></TR></TABLE>>];
+resolver [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" COLOR="#9A3B3B"><TR><TD BGCOLOR="#F6EEDF"><B>Resolver</B></TD></TR><TR><TD ALIGN="LEFT">operacion; campos permitidos</TD></TR><TR><TD ALIGN="LEFT">batch inventory; consulta orders</TD></TR></TABLE>>];
+auth [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" COLOR="#9A3B3B"><TR><TD BGCOLOR="#F6EEDF"><B>AuthService</B></TD></TR><TR><TD ALIGN="LEFT">sesiones revocables</TD></TR><TR><TD ALIGN="LEFT">roles actuales</TD></TR></TABLE>>];
+gateway -> route [label="configura",style="solid",taillabel="1",headlabel="1..*",labeldistance=1.8];
+route -> target [label="enruta",style="solid",taillabel="0..*",headlabel="1",labeldistance=1.8];
+gateway -> authentication [label="aplica",style="dashed",taillabel="",headlabel="",labeldistance=1.8];
+gateway -> authorization [label="aplica",style="dashed",taillabel="",headlabel="",labeldistance=1.8];
+authentication -> auth [label="verifica sesion",style="dashed",taillabel="",headlabel="",labeldistance=1.8];
+target -> secret [label="obtiene identidad",style="dashed",taillabel="",headlabel="",labeldistance=1.8];
+gateway -> graphql [label="ruta privada",style="dashed",taillabel="",headlabel="",labeldistance=1.8];
+graphql -> schema [label="publica contrato",style="solid",taillabel="1",headlabel="1",labeldistance=1.8];
+schema -> resolver [label="operaciones",style="solid",taillabel="1",headlabel="1..*",labeldistance=1.8];
+resolver -> target [label="consulta APIs internas",style="dashed",taillabel="",headlabel="",labeldistance=1.8];
+graphql -> authorization [label="recurso y campo",style="dashed",taillabel="",headlabel="",labeldistance=1.8];
+}
